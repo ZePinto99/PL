@@ -1,0 +1,64 @@
+#include "thread.h"
+#include <stdlib.h>
+
+CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
+			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
+			c->id = i;
+			c->user = user;
+			c->date = date;
+			c->timestamp=timestamp;
+			c->commentText = commentText;
+			c->likes = likes;
+			c->hasReplies =hasReplies;
+			c->numberOfReplies = numberOfReplies;
+			c->replies = replies;
+			return c;
+}
+
+void writeCommentThread(CommentThread *c, FILE *json){
+	
+	fprintf(json, "commentThread[\n{\n");
+	fprintf(json, "id : %d\n", c->id);
+	fprintf(json, "user : %s\n", c->user);
+	fprintf(json, "date : %s\n", c->date);
+	fprintf(json, "timestamp : %d\n", c->timestamp);
+	fprintf(json, "commentText : %s\n", c->commentText);
+	fprintf(json, "likes : %d\n", c->likes);
+	if (c->hasReplies ==1)
+	{
+		fprintf(json, "hasReplies : TRUE\n");
+	} else fprintf(json, "id : FALSE\n");
+	fprintf(json, "numberOfReplies : %d\n", c->numberOfReplies);
+
+	fprintf(json, "replies[\n");
+	for(int i=0; i < c->numberOfReplies; i++)
+		fprintf(json, "->%s\n", (c->replies)[i]);
+	fprintf(json, "]\n}........\n]\n");
+}
+
+//char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
+
+//char* retiraUSer <h5 class="comment__author">\n<a href = "/utilizador/perfil/275d9ced-3b68-4dc4-bd47-441c76edf850" rel = "nofollow">Joao Vieira de Sousa < / a>\n</h5>
+
+//char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
+
+//int timestamp <a class="comment__permalink">02.10.2019 22:50</a>
+
+//char* retiraCommentText
+
+//int retiraLikes
+
+//int hasReplies
+
+//int number of replies
+
+//char** replies
+
+/*
+int main(int argc, char const *argv[])
+{
+	FILE *json = fopen("analise.json","w+");
+	CommentThread *teste = newCommentThread(1,"Ze","14/03/20",8,"Hello world!",100,1,0,NULL);
+	writeCommentThread(teste, json);
+	return 0;
+}*/
