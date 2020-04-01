@@ -948,19 +948,19 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 58 "filtro.l"
-{printf("data \n");};
+{printf("data: %s \n",yytext);};
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
 #line 60 "filtro.l"
-{printf("TimeStamp\n");};
+{printf("TimeStamp: %s \n",yytext);};
 	YY_BREAK
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
 #line 62 "filtro.l"
-{BEGIN ler; printf("Conteudo\nFim comentário\n");};
+{BEGIN ler; printf("Conteudo: %s \nFim comentário\n",yytext);};
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */

@@ -1,4 +1,4 @@
-#include "thread.h"
+﻿#include "thread.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -54,10 +54,21 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 //char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
+  /*Exemplo de input:
+  <time class="dateline comment__dateline" datetime="2019-10-02T22:37:46.487">
+  */
 
-//int timestamp <a class="comment__permalink">02.10.2019 22:50</a>
+
+//int timestamp 
+  /*Exemplo de input:
+  <a class="comment__permalink">02.10.2019 22:50</a>
+  */
 
 //char* retiraCommentText
+/*Exemplo de input:
+  Para esclarecer os eleitores � crucial saber-se qual a qualidade dos candidatos que ir�o aplicar o programa eleitoral. As suspeitas sobre Costa deviam ser discutidas agora, antes das elei��es.
+                    </p>
+ */
 
 //int retiraLikes
 

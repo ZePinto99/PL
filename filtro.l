@@ -55,11 +55,11 @@ BEGIN 0;
 
 <comment>{commentAuthor} {printf("Autor: %s\n", retiraUser(yytext));};
 
-<comment>{data} {printf("data \n");};
+<comment>{data} {printf("data: %s \n",yytext);};
 
-<comment>{timeStamp} {printf("TimeStamp\n");};
+<comment>{timeStamp} {printf("TimeStamp: %s \n",yytext);};
 
-<comment>{content} {BEGIN ler; printf("Conteudo\nFim comentário\n");};
+<comment>{content} {BEGIN ler; printf("Conteudo: %s \nFim comentário\n",yytext);};
 
 <comment>{branco} ;
 <comment>.+ ;
