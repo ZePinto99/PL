@@ -1,5 +1,7 @@
 #include "thread.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
 			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
@@ -40,7 +42,7 @@ void writeCommentThread(CommentThread *c, FILE *json){
 
   char*  retiraUser() {
 	char str[200] = "<h5 class=comment__author>\n<a href= / utilizador / perfil / ff148bf7 - 1a11 - 479e - a2ed - b66ab9855783 rel=nofollow>PdellaF </a>";
-	const char s[3] = "" > ";
+	const char s[3] = " > ";
 		char* last, * token;
 	token = strtok(str, s);
 	while (token != NULL) {
