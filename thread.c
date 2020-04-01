@@ -38,7 +38,19 @@ void writeCommentThread(CommentThread *c, FILE *json){
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 
-//char* retiraUSer <h5 class="comment__author">\n<a href = "/utilizador/perfil/275d9ced-3b68-4dc4-bd47-441c76edf850" rel = "nofollow">Joao Vieira de Sousa < / a>\n</h5>
+  char*  retiraUser() {
+	char str[200] = "<h5 class=comment__author>\n<a href= / utilizador / perfil / ff148bf7 - 1a11 - 479e - a2ed - b66ab9855783 rel=nofollow>PdellaF </a>";
+	const char s[3] = "" > ";
+		char* last, * token;
+	token = strtok(str, s);
+	while (token != NULL) {
+		last = token;
+		token = strtok(NULL, s);
+	}
+	token = strtok(last, "<");
+	printf(" %s\n", token);
+	return(token);
+}
 
 //char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
 

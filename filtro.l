@@ -6,9 +6,9 @@ commentExpanded \<(form).+
 commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
-content \<(p)\>{branco}.+{branco}+\<\/p\>
+content .+{branco}\<\/p\>
 
-%x ler comment replys
+%x ler comment
 
 %s ol
 %s h5
@@ -16,7 +16,7 @@ content \<(p)\>{branco}.+{branco}+\<\/p\>
 %s class
 %s comment__permalink
 %s form
-%s div
+%s li
 
 %{
 #include<stdio.h>
@@ -39,29 +39,29 @@ CommentThread *comentarios = NULL;
 %option noyywrap
 
 %%
+
 BEGIN 0;
 
-\[\</(h3)   {BEGIN ler; printf("######SEJA BEM VINDO#######\n");};
+{commentList}   {BEGIN ler; printf("######SEJA BEM VINDO#######\n");};
 
-<ler>{commentList} {BEGIN comment; hasReplies = 0; printf(" ID: %s ", yytext);};
+<ler>\<li.+ {BEGIN comment; hasReplies=1; numberOfReplies++; printf(" ID: %s ", yytext);};
 
-<ler>{commentExpanded} {BEGIN comment; hasReplies = 0; printf(" ID: %s ",yytext);};
+<ler>{commentExpanded} {BEGIN comment; hasReplies = 0; numberOfReplies = 0; printf(" ID: %s ",yytext);};
 
+<ler>.+ ;
 <ler>\n ;
 
 <ler><<EOF>>   {printf("Ate a uma proxima!\n"); exit(0);};
 
-<comment>{commentAuthor} {printf("Autor\n");};
+<comment>{commentAuthor} {printf("Autor: %s\n",yytext);};
 
-<comment>{data} {printf("Data\n");};
+<comment>{data} {printf("data \n");};
 
 <comment>{timeStamp} {printf("TimeStamp\n");};
 
-<comment>{content} {printf("Conteudo \n");};
+<comment>{content} {BEGIN ler; printf("Conteudo\nFim comentário\n");};
 
-<comment>\<\/div\>{branco}\<\/div\> {BEGIN ler; printf("Fim do comentário \n");};
-
-<comment>\n ;
+<comment>{branco} ;
 <comment>.+ ;
 
 %%
