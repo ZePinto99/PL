@@ -943,7 +943,7 @@ case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
 #line 56 "filtro.l"
-{printf("Autor: %s\n",yytext);};
+{printf("Autor: %s\n", retiraUser(yytext));};
 	YY_BREAK
 case 8:
 YY_RULE_SETUP

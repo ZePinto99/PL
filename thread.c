@@ -40,9 +40,8 @@ void writeCommentThread(CommentThread *c, FILE *json){
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 
-  char*  retiraUser() {
-	char str[200] = "<h5 class=comment__author>\n<a href= / utilizador / perfil / ff148bf7 - 1a11 - 479e - a2ed - b66ab9855783 rel=nofollow>PdellaF </a>";
-	const char s[3] = " > ";
+  char*  retiraUser(char *str) {
+	const char s[3] = "\">";
 		char* last, * token;
 	token = strtok(str, s);
 	while (token != NULL) {

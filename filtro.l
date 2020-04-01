@@ -53,7 +53,7 @@ BEGIN 0;
 
 <ler><<EOF>>   {printf("Ate a uma proxima!\n"); exit(0);};
 
-<comment>{commentAuthor} {printf("Autor: %s\n",yytext);};
+<comment>{commentAuthor} {printf("Autor: %s\n", retiraUser(yytext));};
 
 <comment>{data} {printf("data \n");};
 
