@@ -17,6 +17,12 @@ CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp,
 			return c;
 }
 
+char *saveReply(char *user,char *date){
+    char* token;
+    sprintf(token, "ID %s and date: %s \n", user, date);
+    return token;
+}
+
 void writeCommentThread(CommentThread *c, FILE *json){
 
 	fprintf(json, "commentThread[\n{\n");
@@ -39,26 +45,15 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 
-void writeCommentThreadWithoutJson(CommentThread* c){
+void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no){
     FILE *json;
 
    json = fopen("json.txt","a");
     fprintf(json, "commentThread[\n{\n");
-    fprintf(json, "id : %s\n", c->id);
-    fprintf(json, "user : %s\n", c->user);
-    fprintf(json, "date : %s\n", c->date);
-    fprintf(json, "timestamp : %s\n", c->timestamp);
-    fprintf(json, "commentText : %s\n", c->commentText);
-    fprintf(json, "likes : %d\n", c->likes);
-    if (c->hasReplies ==1){
-        fprintf(json, "respostas");
-        int i=0;
-        while(c->replies[i]){
-            fprintf(json, "likes : %s\n", c->replies[i]); i++;
-            fprintf(json,"Fim de resposta \n");
-        }
-    }
-
+    fprintf(json, "id : %s\n", id);
+    fprintf(json, "user : %s\n", user);
+    fprintf(json, "hasreply : %d\n", hasReplies);
+    fprintf(json, "noreply : %d\n",  no);
     fprintf(json,"Fim de comentario \n");
     fclose(json);
 }

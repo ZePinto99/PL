@@ -43,7 +43,7 @@ char *timestampR;
 char *commentTextR = NULL;
 
 CommentThread *comentario = NULL;
-CommentThread **replys   = NULL;
+char **replys   = NULL;
 
 
 %}
@@ -55,18 +55,19 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; printf("######SEJA BEM VINDO#######\nID: %s \n",yytext);};
 
-<ler>\<li.+ {if(hasReplies==1){numberOfReplies++;BEGIN reply;}else{BEGIN comment;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+<ler>\<li.+ {if(hasReplies==1){numberOfReplies++;BEGIN reply;}else{BEGIN comment;comentario = (CommentThread *) malloc(sizeof(CommentThread));};
+ printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext),numberOfReplies);id=retiraID(yytext); };
 
-<ler>{commentList} {hasReplies=1; replys = (CommentThread *) malloc(sizeof(CommentThread));BEGIN reply; }
+<ler>{commentList} {hasReplies=1; replys = malloc(sizeof(char*));BEGIN reply; }
 
-<ler>{commentExpanded} {;hasReplies = 0; numberOfReplies =0; };
+<ler>{commentExpanded} {if(hasReplies==1) writeCommentThreadWithoutJson(id,user,hasReplies,numberOfReplies);hasReplies = 0; numberOfReplies =0;};
 
 <ler>.+ ;
 <ler>\n ;
 
 <ler><<EOF>>   {printf("Ate a uma proxima!\n"); exit(0);};
 
-<comment>\<li.+ {if(hasReplies==1){numberOfReplies++;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+<comment>\<li.+ {if(hasReplies==1){numberOfReplies++;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);id=retiraID(yytext);};
 
 <comment>{commentAuthor} {printf("Autor: %s\n", retiraUser(yytext)); user = retiraUser(yytext);};
 
@@ -87,7 +88,8 @@ BEGIN 0;
 
 <reply>{timeStamp} {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 
-<reply>{content} {printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext)); BEGIN ler;};
+<reply>{content} {printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));
+replys[numberOfReplies-1]=malloc(sizeof(char));replys[numberOfReplies]=saveReply("11","12"); BEGIN ler;};
 
 
 <reply>{branco} ;

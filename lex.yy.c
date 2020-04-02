@@ -768,7 +768,7 @@ char *timestampR;
 char *commentTextR = NULL;
 
 CommentThread *comentario = NULL;
-CommentThread **replys   = NULL;
+char **replys   = NULL;
 
 
 #line 775 "lex.yy.c"
@@ -1072,117 +1072,119 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 58 "filtro.l"
-{if(hasReplies==1){numberOfReplies++;BEGIN reply;}else{BEGIN comment;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+{if(hasReplies==1){numberOfReplies++;BEGIN reply;}else{BEGIN comment;comentario = (CommentThread *) malloc(sizeof(CommentThread));};
+ printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext),numberOfReplies);id=retiraID(yytext); };
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 60 "filtro.l"
-{hasReplies=1; replys = (CommentThread *) malloc(sizeof(CommentThread));BEGIN reply; }
+#line 61 "filtro.l"
+{hasReplies=1; replys = malloc(sizeof(char*));BEGIN reply; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 62 "filtro.l"
-{;hasReplies = 0; numberOfReplies =0; };
+#line 63 "filtro.l"
+{if(hasReplies==1) writeCommentThreadWithoutJson(id,user,hasReplies,numberOfReplies);hasReplies = 0; numberOfReplies =0;};
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 64 "filtro.l"
+#line 65 "filtro.l"
 ;
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 65 "filtro.l"
+#line 66 "filtro.l"
 ;
 	YY_BREAK
 case YY_STATE_EOF(ler):
-#line 67 "filtro.l"
+#line 68 "filtro.l"
 {printf("Ate a uma proxima!\n"); exit(0);};
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 69 "filtro.l"
-{if(hasReplies==1){numberOfReplies++;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+#line 70 "filtro.l"
+{if(hasReplies==1){numberOfReplies++;}; printf(" Resposta nr : %d \n " ,numberOfReplies);id=retiraID(yytext);};
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 71 "filtro.l"
+#line 72 "filtro.l"
 {printf("Autor: %s\n", retiraUser(yytext)); user = retiraUser(yytext);};
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 73 "filtro.l"
+#line 74 "filtro.l"
 {printf(" Data: %s \n", retiraData(yytext));};
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 75 "filtro.l"
+#line 76 "filtro.l"
 {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 77 "filtro.l"
+#line 78 "filtro.l"
 { printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext)); BEGIN ler;};
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 79 "filtro.l"
+#line 80 "filtro.l"
 ;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 80 "filtro.l"
+#line 81 "filtro.l"
 ;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 82 "filtro.l"
+#line 83 "filtro.l"
 {if(hasReplies==1){numberOfReplies++;}; printf("#### REPLY ### ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
 	YY_BREAK
 case 16:
 /* rule 16 can match eol */
 YY_RULE_SETUP
-#line 84 "filtro.l"
+#line 85 "filtro.l"
 {printf("Autor: %s\n", retiraUser(yytext)); user = retiraUser(yytext);};
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 86 "filtro.l"
+#line 87 "filtro.l"
 {printf(" Data: %s \n", retiraData(yytext));};
 	YY_BREAK
 case 18:
 /* rule 18 can match eol */
 YY_RULE_SETUP
-#line 88 "filtro.l"
+#line 89 "filtro.l"
 {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 90 "filtro.l"
-{printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext)); BEGIN ler;};
+#line 91 "filtro.l"
+{printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));
+replys[numberOfReplies-1]=malloc(sizeof(char));replys[numberOfReplies]=saveReply("11","12"); BEGIN ler;};
 	YY_BREAK
 case 20:
 /* rule 20 can match eol */
 YY_RULE_SETUP
-#line 93 "filtro.l"
+#line 95 "filtro.l"
 ;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 94 "filtro.l"
+#line 96 "filtro.l"
 ;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 96 "filtro.l"
+#line 98 "filtro.l"
 ECHO;
 	YY_BREAK
-#line 1186 "lex.yy.c"
+#line 1188 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 case YY_STATE_EOF(reply):
@@ -2196,7 +2198,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 96 "filtro.l"
+#line 98 "filtro.l"
 
 
 int main(int argc, char **argv){
