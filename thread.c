@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
+CommentThread* newCommentThread(int i, char *user,char *date, char* timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
 			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
 			c->id = i;
 			c->user = user;
@@ -23,7 +23,7 @@ void writeCommentThread(CommentThread *c, FILE *json){
 	fprintf(json, "id : %d\n", c->id);
 	fprintf(json, "user : %s\n", c->user);
 	fprintf(json, "date : %s\n", c->date);
-	fprintf(json, "timestamp : %d\n", c->timestamp);
+	fprintf(json, "timestamp : %s\n", c->timestamp);
 	fprintf(json, "commentText : %s\n", c->commentText);
 	fprintf(json, "likes : %d\n", c->likes);
 	if (c->hasReplies ==1)
@@ -37,6 +37,10 @@ void writeCommentThread(CommentThread *c, FILE *json){
 		fprintf(json, "->%s\n", (c->replies)[i]);
 	fprintf(json, "]\n}........\n]\n");
 }
+
+
+//char* retiraID(char *str)
+
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 char*  retiraUser(char *str) {
@@ -53,10 +57,10 @@ char*  retiraUser(char *str) {
 }
 
 //char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
-char*  retiraData(char *str) {
+/*char*  retiraData(char *str) {
     const char s[3] = """;
     char *last, token;
-    chartoken2;
+    char *token2;
     token = strtok(str, s);
     while( token != NULL ) {
         token2=last;
@@ -66,7 +70,7 @@ char*  retiraData(char *str) {
     token = strtok(last,"<");
     printf( " %s\n", token2);
     return token2;
-}
+}*/
 
 //int timestamp
 char*  retirarTimeStamp(char *str) {
@@ -86,7 +90,8 @@ char*  retirarTimeStamp(char *str) {
 }
 
 //char* retiraCommentText
-char* retiraCommentText(char * str){const char s[3] = "\n";
+char* retiraCommentText(char * str){
+	const char s[3] = "\n";
     char *last, *token;
     token = strtok(str, s);
     printf( " %s\n", token);

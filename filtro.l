@@ -25,15 +25,17 @@ content .+{branco}\<\/p\>
 
 int id;
 char *user;
+int likes =0;
 char *date = NULL;
-int timestamp=0;
+char *timestamp;
 char *commentText = NULL;
 int hasReplies =0;
 int numberOfReplies =0;
+char **replies = NULL;
 FILE *yyin;
-int autores =0;
+FILE *json;
 
-CommentThread *comentarios = NULL;
+CommentThread *comentario = NULL;
 
 %}
 %option noyywrap
@@ -42,11 +44,13 @@ CommentThread *comentarios = NULL;
 
 BEGIN 0;
 
-{commentList}   {BEGIN ler; printf("######SEJA BEM VINDO#######\n");};
+{commentList}\<li.+   {BEGIN ler; printf("######SEJA BEM VINDO#######\nID: %s \n",yytext);};
 
-<ler>\<li.+ {BEGIN comment; hasReplies=1; numberOfReplies++; printf(" ID: %s ", yytext);};
+<ler>\<li.+ {BEGIN comment; if(hasReplies==1) numberOfReplies++; printf(" ID: %s, Resposta nr : %d \n ", yytext, numberOfReplies);};
 
-<ler>{commentExpanded} {BEGIN comment; hasReplies = 0; numberOfReplies = 0; printf(" ID: %s ",yytext);};
+<ler>{commentList} {hasReplies=1;}
+
+<ler>{commentExpanded} {hasReplies = 0; numberOfReplies =0;};
 
 <ler>.+ ;
 <ler>\n ;
@@ -55,11 +59,11 @@ BEGIN 0;
 
 <comment>{commentAuthor} {printf("Autor: %s\n", retiraUser(yytext));};
 
-<comment>{data} {printf("data: %s \n",yytext);};
+<comment>{data} {printf(" Data: %s \n", yytext);};
 
-<comment>{timeStamp} {printf("TimeStamp: %s \n",yytext);};
+<comment>{timeStamp} {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 
-<comment>{content} {BEGIN ler; printf("Conteudo: %s \nFim comentário\n",yytext);};
+<comment>{content} {BEGIN ler; printf("Conteudo: %s \nFim comentário\n",yytext); comentario = newCommentThread(id, user, date, timestamp, commentText, likes, hasReplies, numberOfReplies, replies); writeCommentThread(comentario, json);};
 
 <comment>{branco} ;
 <comment>.+ ;
@@ -67,9 +71,9 @@ BEGIN 0;
 %%
 
 int main(int argc, char **argv){
-  comentarios = (CommentThread *) malloc(sizeof(CommentThread));
+  comentario = (CommentThread *) malloc(sizeof(CommentThread));
   yyin = fopen("Publico_extraction_portuguese_comments_4.html","r");
-  FILE *json = fopen("analise.json","w+");
+  json = fopen("analise.json","w+");
 
   yylex();
 
