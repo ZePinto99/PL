@@ -40,7 +40,7 @@ void writeCommentThread(CommentThread *c, FILE *json){
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 
-  char*  retiraUser(char *str) {
+char*  retiraUser(char *str) {
 	const char s[3] = "\">";
 		char* last, * token;
 	token = strtok(str, s);
@@ -50,12 +50,12 @@ void writeCommentThread(CommentThread *c, FILE *json){
 	}
 	token = strtok(last, "<");
 	printf(" %s\n", token);
-	return(token);
+	return token;
 }
 
 //char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
 char*  retiraData(char *str) {
-     const char s[3] = """;
+    const char s[3] = """;
     char *last, token;
     chartoken2;
     token = strtok(str, s);
@@ -66,13 +66,26 @@ char*  retiraData(char *str) {
     }
     token = strtok(last,"<");
     printf( " %s\n", token2);
-    return(0);
+    return token2;
 }
 
 //int timestamp
-  /*Exemplo de input:
-  <a class="comment__permalink">02.10.2019 22:50</a>
-  */
+char*  retirarTimeStamp(char *str) {
+   	const char s[3] = "<";
+    char *last, *token;
+    char*token2, *token3, *token4;
+    token = strtok(str, s);
+    while( token != NULL ) {
+        token2=last;
+        last = token;
+        token = strtok(NULL, s);
+    }
+    token3 = strtok(token2,">");
+    token3 = strtok(NULL, " ");
+    token3 = strtok(NULL, " ");
+    printf( " %s\n", token3);
+    return token3;
+}
 
 //char* retiraCommentText
 /*Exemplo de input:
