@@ -37,8 +37,9 @@ char *dateR = NULL;
 char *timestampR;
 char *commentTextR = NULL;
 
-CommentThread *comentario = NULL;
-char **replys   = NULL;
+CommentThread* reply;
+CommentThread** replys = NULL;
+
 
 
 %}
@@ -54,9 +55,14 @@ BEGIN 0;
 
 <ler>{commentList} {;hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 
-<ler>{commentExpanded} {if(hasReplies!=1){fprintf(json,"\"hasReplies\" : FALSE,\n");
+<ler>{commentExpanded} { if(hasReplies!=1){
+                         fprintf(json,"\"hasReplies\" : FALSE,\n");}
                          fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
-                         fprintf(json,"\"Replys\" []\n,");}hasReplies = 0; numberOfReplies =0;};
+                         writeCommentThread(replys, json, numberOfReplies);
+                         fprintf(json,"]\n,");
+                         hasReplies = 0; numberOfReplies =0;
+                         };
+
 
 <ler>.+ ;
 <ler>\n ;
@@ -77,17 +83,18 @@ BEGIN 0;
 <comment>{branco} ;
 <comment>.+ ;
 
-<reply>\<li.+ {if(hasReplies==1){numberOfReplies++;}; printf("#### REPLY ### ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+<reply>\<li.+ {numberOfReplies++; idR = retiraID(yytext);};
 
-<reply>{commentAuthor} {printf("Autor: %s\n", retiraUser(yytext));};
+<reply>{commentAuthor}  {userR = retiraUser(yytext);};
 
-<reply>{data} {printf(" Data: %s \n", retiraData(yytext));};
+<reply>{data} {dateR = retiraData(yytext);};
 
-<reply>{timeStamp} {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
+<reply>{timeStamp} { timestampR = retirarTimeStamp(yytext);};
 
-<reply>{content} {printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));
-replys[numberOfReplies-1]=malloc(sizeof(char));
-replys[numberOfReplies-1]=saveReply("11","12"); BEGIN ler;};
+<reply>{content} { commentTextR = retiraCommentText(yytext);
+
+replys = malloc(sizeof(CommentThread**));
+replys[numberOfReplies-1]= newCommentThread(idR, userR, dateR, timestampR, commentTextR, 0); BEGIN ler;};
 
 
 <reply>{branco} ;
@@ -96,7 +103,6 @@ replys[numberOfReplies-1]=saveReply("11","12"); BEGIN ler;};
 %%
 
 int main(int argc, char **argv){
-  comentario = (CommentThread *) malloc(sizeof(CommentThread));
   yyin = fopen("Publico_extraction_portuguese_comments_4.html","r");
   json = fopen("commentThread.json","w");
   fprintf(json, "commentThread[\n{\n");

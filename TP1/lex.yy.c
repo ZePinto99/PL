@@ -762,12 +762,13 @@ char *dateR = NULL;
 char *timestampR;
 char *commentTextR = NULL;
 
-CommentThread *comentario = NULL;
-char **replys   = NULL;
+CommentThread* reply;
+CommentThread** replys = NULL;
 
 
-#line 770 "lex.yy.c"
+
 #line 771 "lex.yy.c"
+#line 772 "lex.yy.c"
 
 #define INITIAL 0
 #define ler 1
@@ -994,10 +995,10 @@ YY_DECL
 		}
 
 	{
-#line 47 "filtro.l"
+#line 48 "filtro.l"
 
 
-#line 1001 "lex.yy.c"
+#line 1002 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1056,133 +1057,138 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 49 "filtro.l"
+#line 50 "filtro.l"
 0;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 51 "filtro.l"
+#line 52 "filtro.l"
 {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 53 "filtro.l"
+#line 54 "filtro.l"
 {if(hasReplies==1){BEGIN reply; } else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 55 "filtro.l"
+#line 56 "filtro.l"
 {;hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 57 "filtro.l"
-{if(hasReplies!=1){fprintf(json,"\"hasReplies\" : FALSE,\n");
+#line 58 "filtro.l"
+{ if(hasReplies!=1){
+                         fprintf(json,"\"hasReplies\" : FALSE,\n");}
                          fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
-                         fprintf(json,"\"Replys\" []\n,");}hasReplies = 0; numberOfReplies =0;};
+                         writeCommentThread(replys, json, numberOfReplies);
+                         fprintf(json,"]\n,");
+                         hasReplies = 0; numberOfReplies =0;
+                         };
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 61 "filtro.l"
+#line 67 "filtro.l"
 ;
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 62 "filtro.l"
+#line 68 "filtro.l"
 ;
 	YY_BREAK
 case YY_STATE_EOF(ler):
-#line 64 "filtro.l"
+#line 70 "filtro.l"
 {fprintf(json,"]\n"); exit(0);};
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 66 "filtro.l"
+#line 72 "filtro.l"
 {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 68 "filtro.l"
+#line 74 "filtro.l"
 { fprintf(json, "\"user\" : \"%s\",\n", retiraUser(yytext));};
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 70 "filtro.l"
+#line 76 "filtro.l"
 {fprintf(json, "\"date\" : \"%s\",\n", retiraData(yytext));};
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 72 "filtro.l"
+#line 78 "filtro.l"
 {fprintf(json, "\"timestamp\" : \"%s\",\n",retirarTimeStamp(yytext));};
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 74 "filtro.l"
+#line 80 "filtro.l"
 {fprintf(json,"\"commentText\" : \"%s\",\n",retiraCommentText(yytext));
                     fprintf(json,"\"likes\" : %d,\n",likes) ;BEGIN ler;};
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 77 "filtro.l"
+#line 83 "filtro.l"
 ;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 78 "filtro.l"
+#line 84 "filtro.l"
 ;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 80 "filtro.l"
-{if(hasReplies==1){numberOfReplies++;}; printf("#### REPLY ### ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+#line 86 "filtro.l"
+{numberOfReplies++; idR = retiraID(yytext);};
 	YY_BREAK
 case 16:
 /* rule 16 can match eol */
 YY_RULE_SETUP
-#line 82 "filtro.l"
-{printf("Autor: %s\n", retiraUser(yytext));};
+#line 88 "filtro.l"
+{userR = retiraUser(yytext);};
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 84 "filtro.l"
-{printf(" Data: %s \n", retiraData(yytext));};
+#line 90 "filtro.l"
+{dateR = retiraData(yytext);};
 	YY_BREAK
 case 18:
 /* rule 18 can match eol */
 YY_RULE_SETUP
-#line 86 "filtro.l"
-{printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
+#line 92 "filtro.l"
+{ timestampR = retirarTimeStamp(yytext);};
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 88 "filtro.l"
-{printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));
-replys[numberOfReplies-1]=malloc(sizeof(char));
-replys[numberOfReplies-1]=saveReply("11","12"); BEGIN ler;};
+#line 94 "filtro.l"
+{ commentTextR = retiraCommentText(yytext);
+
+replys = malloc(sizeof(CommentThread**));
+replys[numberOfReplies-1]= newCommentThread(idR, userR, dateR, timestampR, commentTextR, 0); BEGIN ler;};
 	YY_BREAK
 case 20:
 /* rule 20 can match eol */
 YY_RULE_SETUP
-#line 93 "filtro.l"
+#line 100 "filtro.l"
 ;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 94 "filtro.l"
+#line 101 "filtro.l"
 ;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 96 "filtro.l"
+#line 103 "filtro.l"
 ECHO;
 	YY_BREAK
-#line 1186 "lex.yy.c"
+#line 1192 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 case YY_STATE_EOF(reply):
@@ -2196,11 +2202,10 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 96 "filtro.l"
+#line 103 "filtro.l"
 
 
 int main(int argc, char **argv){
-  comentario = (CommentThread *) malloc(sizeof(CommentThread));
   yyin = fopen("Publico_extraction_portuguese_comments_4.html","r");
   json = fopen("commentThread.json","w");
   fprintf(json, "commentThread[\n{\n");
