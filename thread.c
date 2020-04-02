@@ -39,7 +39,6 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
-
 char*  retiraUser(char *str) {
 	const char s[3] = "\">";
 		char* last, * token;
@@ -87,10 +86,11 @@ char*  retirarTimeStamp(char *str) {
 }
 
 //char* retiraCommentText
-/*Exemplo de input:
-  Para esclarecer os eleitores � crucial saber-se qual a qualidade dos candidatos que ir�o aplicar o programa eleitoral. As suspeitas sobre Costa deviam ser discutidas agora, antes das elei��es.
-                    </p>
- */
+char* retiraCommentText(char * str){const char s[3] = "\n";
+    char *last, *token;
+    token = strtok(str, s);
+    printf( " %s\n", token);
+}
 
 //int retiraLikes
 
