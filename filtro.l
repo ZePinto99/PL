@@ -55,11 +55,11 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; printf("######SEJA BEM VINDO#######\nID: %s \n",yytext);};
 
-<ler>\<li.+ {BEGIN comment; if(hasReplies==1){numberOfReplies++;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
+<ler>\<li.+ {if(hasReplies==1){numberOfReplies++;BEGIN reply;}else{BEGIN comment;}; printf(" ID: %s Resposta nr : %d \n ", retiraID(yytext), numberOfReplies);};
 
-<ler>{commentList} {hasReplies=1; BEGIN reply;}
+<ler>{commentList} {hasReplies=1; replys = (CommentThread *) malloc(sizeof(CommentThread));BEGIN reply; }
 
-<ler>{commentExpanded} {hasReplies = 0; numberOfReplies =0;};
+<ler>{commentExpanded} {;hasReplies = 0; numberOfReplies =0; };
 
 <ler>.+ ;
 <ler>\n ;
@@ -74,7 +74,7 @@ BEGIN 0;
 
 <comment>{timeStamp} {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 
-<comment>{content} {BEGIN ler; printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));};
+<comment>{content} { printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext)); BEGIN ler;};
 
 <comment>{branco} ;
 <comment>.+ ;
@@ -87,10 +87,11 @@ BEGIN 0;
 
 <reply>{timeStamp} {printf(" TimeStamp: %s \n",retirarTimeStamp(yytext));};
 
-<reply>{content} {BEGIN ler; printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext));};
+<reply>{content} {printf(" Conteudo: %s \nFim comentário\n",retiraCommentText(yytext)); BEGIN ler;};
 
-<reply>{commentExpanded} {BEGIN comment; hasReplies = 0; numberOfReplies =0;};
 
+<reply>{branco} ;
+<reply>.+ ;
 
 %%
 

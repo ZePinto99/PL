@@ -17,6 +17,8 @@ CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp
 
 void writeCommentThread(CommentThread* c, FILE* json);
 
+void writeCommentThreadWithoutJson(CommentThread* c);
+
 char*  retiraID(char *str);
 
 char* retiraUser(char* str);
