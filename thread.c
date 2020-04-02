@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
+CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
 			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
 			c->id = i;
 			c->user = user;
@@ -20,10 +20,10 @@ CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, cha
 void writeCommentThread(CommentThread *c, FILE *json){
 
 	fprintf(json, "commentThread[\n{\n");
-	fprintf(json, "id : %d\n", c->id);
+	fprintf(json, "id : %s\n", c->id);
 	fprintf(json, "user : %s\n", c->user);
 	fprintf(json, "date : %s\n", c->date);
-	fprintf(json, "timestamp : %d\n", c->timestamp);
+	fprintf(json, "timestamp : %s\n", c->timestamp);
 	fprintf(json, "commentText : %s\n", c->commentText);
 	fprintf(json, "likes : %d\n", c->likes);
 	if (c->hasReplies ==1)
@@ -39,40 +39,53 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
-char*  retiraUser(char *str) {
-	const char s[3] = "\">";
-		char* last, * token;
-	token = strtok(str, s);
-	while (token != NULL) {
-		last = token;
-		token = strtok(NULL, s);
-	}
-	token = strtok(last, "<");
-	printf(" %s\n", token);
-	return token;
-}
-
-//char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
-char*  retiraData(char *str) {
-    const char s[3] = """;
-    char *last, token;
-    chartoken2;
+char*  retiraID(char *str) {
+    const char s[3] = "\"";
+    char *last, *token;
+    char *token2;
     token = strtok(str, s);
     while( token != NULL ) {
         token2=last;
         last = token;
         token = strtok(NULL, s);
     }
-    token = strtok(last,"<");
-    printf( " %s\n", token2);
-    return token2;
+    token = strtok(token2,"\"");
+    return token;
+}
+
+char*  retiraUser(char *str) {
+	const char s[3] = "\">";
+	char* last, * token;
+	token = strtok(str, s);
+	while (token != NULL) {
+		last = token;
+		token = strtok(NULL, s);
+	}
+	token = strtok(last, "<");
+	//printf(" %s\n", token);
+	return token;
+}
+
+//char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
+char*  retiraData(char *str) {
+    const char s[3] = "\"";
+    char *last, *token;
+    char *token2;
+    token = strtok(str, s);
+    while( token != NULL ) {
+        token2=last;
+        last = token;
+        token = strtok(NULL, s);
+    }
+    token = strtok(token2,"T");
+    return token;
 }
 
 //int timestamp
 char*  retirarTimeStamp(char *str) {
    	const char s[3] = "<";
     char *last, *token;
-    char*token2, *token3, *token4;
+    char *token2, *token3, *token4;
     token = strtok(str, s);
     while( token != NULL ) {
         token2=last;
@@ -81,15 +94,16 @@ char*  retirarTimeStamp(char *str) {
     }
     token3 = strtok(token2,">");
     token3 = strtok(NULL,">");
-    printf( " %s\n", token3);
+ //   printf( " %s\n", token3);
     return(token3);
 }
 
 //char* retiraCommentText
-char* retiraCommentText(char * str){const char s[3] = "\n";
-    char *last, *token;
+char* retiraCommentText(char * str){
+    const char s[3] = "\n";
+    char *token;
     token = strtok(str, s);
-    printf( " %s\n", token);
+    return token;
 }
 
 //int retiraLikes
