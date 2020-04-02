@@ -17,7 +17,7 @@ CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp
 
 void writeCommentThread(CommentThread* c, FILE* json);
 
-void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no);
+void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no, char** reply);
 
 char *saveReply(char *user,char *date);
 

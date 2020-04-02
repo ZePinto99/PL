@@ -45,19 +45,29 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 
-void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no){
+void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no, char** reply){
     FILE *json;
-
-   json = fopen("json.txt","a");
+    json = fopen("json.json","a");
     fprintf(json, "commentThread[\n{\n");
-    fprintf(json, "id : %s\n", id);
-    fprintf(json, "user : %s\n", user);
-    fprintf(json, "hasreply : %d\n", hasReplies);
-    fprintf(json, "noreply : %d\n",  no);
-    fprintf(json,"Fim de comentario \n");
+    fprintf(json, "\"id\" : \"%s\"\n", id);
+    fprintf(json, "\"user\" : \"%s\"\n", user);
+    fprintf(json, "\"hasreply\" : \"%d\"\n", hasReplies);
+    fprintf(json, "\"noreply\" : \"%d\"\n",  no);
+    //fprintf(json,"Fim de comentario \n");
+    int i=0;
+    fprintf(json,"\"replies\" : [");
+    if(i<no){
+        fprintf(json,"\"%s\"",reply[0]);
+        i++;
+        while(i<no)
+        {
+            fprintf(json,",\"%s\"",reply[i]);
+            i++;
+        }
+    }
+    fprintf(json,"]\n");
     fclose(json);
 }
-
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 char*  retiraID(char *str) {
     const char s[3] = "\"";
