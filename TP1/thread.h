@@ -12,12 +12,10 @@ typedef struct CommentThread{
 	char **replies;
 }CommentThread;   	
 
-CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp, char* commentText, int likes, int hasReplies, int numberOfReplies, char** replies);
+CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp, char* commentText, int likes);
 
 
-void writeCommentThread(CommentThread* c, FILE* json);
-
-void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no, char** reply);
+void writeCommentThread(CommentThread** c, FILE* json, int size);
 
 char *saveReply(char *user,char *date);
 

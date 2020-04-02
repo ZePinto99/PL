@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp, char *commentText, int likes, int hasReplies, int numberOfReplies, char **replies){
+CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp, char *commentText, int likes){
 			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
 			c->id = i;
 			c->user = user;
@@ -11,9 +11,6 @@ CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp,
 			c->timestamp=timestamp;
 			c->commentText = commentText;
 			c->likes = likes;
-			c->hasReplies =hasReplies;
-			c->numberOfReplies = numberOfReplies;
-			c->replies = replies;
 			return c;
 }
 
@@ -23,51 +20,20 @@ char *saveReply(char *user,char *date){
     return token;
 }
 
-void writeCommentThread(CommentThread *c, FILE *json){
+void writeCommentThread(CommentThread** c, FILE* json, int size) {
 
-	fprintf(json, "commentThread[\n{\n");
-	fprintf(json, "id : %s\n", c->id);
-	fprintf(json, "user : %s\n", c->user);
-	fprintf(json, "date : %s\n", c->date);
-	fprintf(json, "timestamp : %s\n", c->timestamp);
-	fprintf(json, "commentText : %s\n", c->commentText);
-	fprintf(json, "likes : %d\n", c->likes);
-	if (c->hasReplies ==1)
-	{
-		fprintf(json, "hasReplies : TRUE\n");
-	} else fprintf(json, "id : FALSE\n");
-	fprintf(json, "numberOfReplies : %d\n", c->numberOfReplies);
-
-	fprintf(json, "replies[\n");
-	for(int i=0; i < c->numberOfReplies; i++)
-		fprintf(json, "->%s\n", (c->replies)[i]);
-	fprintf(json, "]\n}........\n]\n");
-}
-
-
-void writeCommentThreadWithoutJson(char *id,char *user,int hasReplies,int no, char** reply){
-    FILE *json;
-    json = fopen("json.json","a");
-    fprintf(json, "commentThread[\n{\n");
-    fprintf(json, "\"id\" : \"%s\"\n", id);
-    fprintf(json, "\"user\" : \"%s\"\n", user);
-    fprintf(json, "\"hasreply\" : \"%d\"\n", hasReplies);
-    fprintf(json, "\"noreply\" : \"%d\"\n",  no);
-    //fprintf(json,"Fim de comentario \n");
-    int i=0;
-    fprintf(json,"\"replies\" : [");
-    if(i<no){
-        fprintf(json,"\"%s\"",reply[0]);
-        i++;
-        while(i<no)
-        {
-            fprintf(json,",\"%s\"",reply[i]);
-            i++;
-        }
+    for (int i = 0; i < size; i++) {
+        fprintf(json, "commentThread[\n{\n");
+        fprintf(json, "id : %s\n", c[i]->id);
+        fprintf(json, "user : %s\n", c[i]->user);
+        fprintf(json, "date : %s\n", c[i]->date);
+        fprintf(json, "timestamp : %s\n", c[i]->timestamp);
+        fprintf(json, "commentText : %s\n", c[i]->commentText);
+        fprintf(json, "likes : %d\n", c[i]->likes);
     }
-    fprintf(json,"]\n");
-    fclose(json);
 }
+
+
 //char* retira id <li class="comment" data-comment-id="8f949889-2606-4749-1c42-08d7471cb23d">
 char*  retiraID(char *str) {
     const char s[3] = "\"";
