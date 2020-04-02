@@ -18,7 +18,7 @@ CommentThread* newCommentThread(int i, char *user,char *date, int timestamp, cha
 }
 
 void writeCommentThread(CommentThread *c, FILE *json){
-	
+
 	fprintf(json, "commentThread[\n{\n");
 	fprintf(json, "id : %d\n", c->id);
 	fprintf(json, "user : %s\n", c->user);
@@ -54,12 +54,22 @@ void writeCommentThread(CommentThread *c, FILE *json){
 }
 
 //char* retiraData <time class="dateline comment__dateline" datetime="2019-10-02T22:50:07.08">
-  /*Exemplo de input:
-  <time class="dateline comment__dateline" datetime="2019-10-02T22:37:46.487">
-  */
+char*  retiraData(char *str) {
+     const char s[3] = """;
+    char *last, token;
+    chartoken2;
+    token = strtok(str, s);
+    while( token != NULL ) {
+        token2=last;
+        last = token;
+        token = strtok(NULL, s);
+    }
+    token = strtok(last,"<");
+    printf( " %s\n", token2);
+    return(0);
+}
 
-
-//int timestamp 
+//int timestamp
   /*Exemplo de input:
   <a class="comment__permalink">02.10.2019 22:50</a>
   */
