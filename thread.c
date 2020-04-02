@@ -81,10 +81,9 @@ char*  retirarTimeStamp(char *str) {
         token = strtok(NULL, s);
     }
     token3 = strtok(token2,">");
-    token3 = strtok(NULL, " ");
-    token3 = strtok(NULL, " ");
+    token3 = strtok(NULL,">");
     printf( " %s\n", token3);
-    return token3;
+    return(token3);
 }
 
 //char* retiraCommentText
