@@ -1,5 +1,5 @@
 branco [ \t\n]+
-pL    [a-z]|ç|ã|á|à|â|é|
+pL    [a-z]|ç|ã|á|à|â|é|ê|õ|ã|ú|
 
 commentList \<(ol).+
 commentExpanded \<(form).+
@@ -7,7 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content \<(div){branco}(class)\=\"(comment__content).+
-paragrafo .+[ \t\n]+
+paragrafo [a-zA-Z \"\!\?,;.\n\t{pL}-]+{branco}
 
 %x ler comment reply conteudo
 
@@ -92,16 +92,18 @@ BEGIN 0;
 
 <comment>{timeStamp} {fprintf(json, "\"timestamp\" : \"%s\",\n",retirarTimeStamp(yytext));};
 
-<comment>{content} {texto = "";BEGIN conteudo; printf("Vou entrar no conteudo\n");};
+<comment>{content} {texto = "";BEGIN conteudo;};
 
 <comment>{branco} ;
 <comment>.+ ;
 
 <conteudo>{paragrafo} {
                         concat(yytext);
+                  //      printf("paragrafo\n");
                       };
-<conteudo>{paragrafo}<\/p> {
+<conteudo>{paragrafo}\<\/p> {
                              concat(yytext);
+                  //           printf("Ultimo paragrafo\n");
                              printf("%s\n", texto);
                              if(hasReplies ==1){
                               comentarios++;
