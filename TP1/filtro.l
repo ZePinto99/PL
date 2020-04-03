@@ -89,10 +89,10 @@ BEGIN 0;
 
 <conteudo>{paragrafo} { texto = retiraCommentText(yytext); printf("%s\n", texto);};
 <conteudo>{paragrafo}\<\/p\>  {
-                              texto = retiraCommentText(yytext); printf("%s\n", texto);
-                              if(hasReplies ==1){
                               comentarios++;
                               printf("%d\n",comentarios);
+                              texto = retiraCommentText(yytext); printf("%s\n", texto);
+                              if(hasReplies ==1){
                               BEGIN reply;
                               replys = malloc(sizeof(CommentThread**));
                               replys[numberOfReplies-1]= NULL;
