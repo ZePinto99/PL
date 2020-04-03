@@ -7,6 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content .+{branco}\<\/p\>
+aux     {branco}.+{branco}
 
 %x ler comment reply
 
@@ -17,6 +18,8 @@ content .+{branco}\<\/p\>
 %s comment__permalink
 %s form
 %s li
+%s data
+%s id
 
 %{
 #include<stdio.h>
@@ -40,7 +43,7 @@ char *commentTextR = NULL;
 CommentThread* reply;
 CommentThread** replys = NULL;
 
-
+int comentarios = 0;
 
 %}
 %option noyywrap
@@ -49,11 +52,11 @@ CommentThread** replys = NULL;
 
 BEGIN 0;
 
-{commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
+{commentList}\<li.+   {BEGIN comment; comentarios++; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){BEGIN reply; } else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
+<ler>\<li.+ {if(hasReplies==1){BEGIN reply; comentarios++;} else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
-<ler>{commentList} {;hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
+<ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 
 <ler>{commentExpanded} { if(hasReplies!=1){
                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
@@ -61,6 +64,7 @@ BEGIN 0;
                          writeCommentThread(replys, json, numberOfReplies);
                          fprintf(json,"]\n,");
                          hasReplies = 0; numberOfReplies =0;
+                         comentarios++;
                          };
 
 
@@ -69,7 +73,7 @@ BEGIN 0;
 
 <ler><<EOF>>   {fprintf(json,"]\n"); exit(0);};
 
-<comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
+<comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext)); comentarios++;};
 
 <comment>{commentAuthor} { fprintf(json, "\"user\" : \"%s\",\n", retiraUser(yytext));};
 
@@ -83,7 +87,7 @@ BEGIN 0;
 <comment>{branco} ;
 <comment>.+ ;
 
-<reply>\<li.+ {numberOfReplies++; idR = retiraID(yytext);};
+<reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
 
 <reply>{commentAuthor}  {userR = retiraUser(yytext);};
 
@@ -94,7 +98,7 @@ BEGIN 0;
 <reply>{content} { commentTextR = retiraCommentText(yytext);
 
 replys = malloc(sizeof(CommentThread**));
-replys[numberOfReplies-1]= newCommentThread(idR, userR, dateR, timestampR, commentTextR, 0); BEGIN ler;};
+replys[numberOfReplies-1]= NULL;};
 
 
 <reply>{branco} ;
