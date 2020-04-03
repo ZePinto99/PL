@@ -25,6 +25,7 @@ paragrafo .+[ \t\n]+
 %{
 #include<stdio.h>
 #include<string.h>
+#include <stdlib.h>
 #include"thread.h"
 
 
@@ -87,12 +88,17 @@ BEGIN 0;
 <comment>{branco} ;
 <comment>.+ ;
 
-<conteudo>{paragrafo} { texto = retiraCommentText(yytext); printf("%s\n", texto);};
-<conteudo>{paragrafo}\<\/p\>  {
+<conteudo>{paragrafo} { char* aux = retiraCommentText(yytext);
+                        texto = (char*)malloc(sizeof(char)*2000);
+                        strncat(texto, aux, (strlen(texto) +1 + strlen(aux) + 1));
+                      };
+<conteudo>{paragrafo}<\/p> { char* aux = retiraCommentText(yytext);
+                             texto = (char*)malloc(sizeof(char)*2000);
+                             strncat(texto, aux, (strlen(texto) +1 + strlen(aux) + 1));
+                             printf("%s\n", texto);
+                             if(hasReplies ==1){
                               comentarios++;
                               printf("%d\n",comentarios);
-                              texto = retiraCommentText(yytext); printf("%s\n", texto);
-                              if(hasReplies ==1){
                               BEGIN reply;
                               replys = malloc(sizeof(CommentThread**));
                               replys[numberOfReplies-1]= NULL;
@@ -102,9 +108,8 @@ BEGIN 0;
                               printf("%d\n",comentarios);
                               BEGIN ler;
                               fprintf(json,"\"commentText\" : \"%s\",\n", texto);
-                              fprintf(json,"\"likes\" : %d,\n",likes);
-                              }
-                              };
+                              fprintf(json,"\"likes\" : \"%d\",\n",likes);
+                              }};
 
 <reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
 
