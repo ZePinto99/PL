@@ -97,7 +97,7 @@ char*  retirarTimeStamp(char *str) {
 
 //char* retiraCommentText
 char* retiraCommentText(char * str){
-    const char s[3] = "\n";
+    const char s[3] = "</p";
     char *token;
     token = strtok(str, s);
     return token;

@@ -1,5 +1,5 @@
 branco [ \t\n]+
-pL    [a-z]|ç|ã|á|à|â|é|ê|õ|ã|ú|
+pL    [A-Za-zçãáàâéêõãú]
 
 commentList \<(ol).+
 commentExpanded \<(form).+
@@ -7,7 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content \<(div){branco}(class)\=\"(comment__content).+
-paragrafo [a-zA-Z \"\!\?,;.\n\t{pL}-]+{branco}
+paragrafo [ \"\!\?,;.\n\t{pL}-]+{branco}
 
 %x ler comment reply conteudo
 
@@ -99,26 +99,26 @@ BEGIN 0;
 
 <conteudo>{paragrafo} {
                         concat(yytext);
-                  //      printf("paragrafo\n");
                       };
-<conteudo>{paragrafo}\<\/p> {
-                             concat(yytext);
-                  //           printf("Ultimo paragrafo\n");
-                             printf("%s\n", texto);
-                             if(hasReplies ==1){
-                              comentarios++;
-                              printf("%d\n",comentarios);
-                              BEGIN reply;
-                              replys = malloc(sizeof(CommentThread**));
-                              replys[numberOfReplies-1]= NULL;
-                              }
-                              else{
+<conteudo>\<\/p> {
+                  concat(yytext);
+                  //printf("%s\n", texto);
+                  if(hasReplies ==1){
+                  comentarios++;
+                  //printf("%d\n",comentarios);
+                  BEGIN reply;
+                  replys = malloc(sizeof(CommentThread**));
+                  replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);
+                  }
+                  else{
                               comentarios++;
                               printf("%d\n",comentarios);
                               BEGIN ler;
                               fprintf(json,"\"commentText\" : \"%s\",\n", texto);
                               fprintf(json,"\"likes\" : \"%d\",\n",likes);
                               }};
+
+<conteudo>{branco} ;
 
 <reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
 
@@ -130,6 +130,13 @@ BEGIN 0;
 
 <reply>{content} {texto = ""; BEGIN conteudo;};
 
+<reply>{commentExpanded} {printf("#########SUP MY DUDE########"); BEGIN comment;
+                          if(hasReplies!=1){
+                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
+                          fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
+                          writeCommentThread(replys, json, numberOfReplies);
+                          fprintf(json,"]\n,");
+                          hasReplies = 0; numberOfReplies =0;};
 
 <reply>{branco} ;
 <reply>.+ ;
