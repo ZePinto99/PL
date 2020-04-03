@@ -7,7 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content \<(div){branco}(class)\=\"(comment__content).+
-paragrafo [ \"\!\?,;.\n\t{pL}-]+{branco}
+paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“—]+[ \t\n]+
 
 %x ler comment reply conteudo
 
@@ -50,8 +50,7 @@ int comentarios = 0;
 char* texto = " ";
 
 void concat(char* yytext){
-          char* aux = retiraCommentText(yytext);
-          char* result = (char*) malloc(sizeof(char*)*(strlen(aux) + strlen(texto) + 1));
+          char* result = (char*) malloc(sizeof(char*)*(strlen(yytext) + strlen(texto) + 1));
           strcpy(result, texto);
           strcat(result, yytext);
           texto = result;
@@ -102,7 +101,7 @@ BEGIN 0;
                       };
 <conteudo>\<\/p> {
                   concat(yytext);
-                  //printf("%s\n", texto);
+                  printf("%s\n", texto);
                   if(hasReplies ==1){
                   comentarios++;
                   //printf("%d\n",comentarios);
@@ -112,13 +111,13 @@ BEGIN 0;
                   }
                   else{
                               comentarios++;
-                              printf("%d\n",comentarios);
+                            //  printf("%d\n",comentarios);
                               BEGIN ler;
                               fprintf(json,"\"commentText\" : \"%s\",\n", texto);
                               fprintf(json,"\"likes\" : \"%d\",\n",likes);
                               }};
 
-<conteudo>{branco} ;
+<conteudo>{branco};
 
 <reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
 
@@ -130,7 +129,7 @@ BEGIN 0;
 
 <reply>{content} {texto = ""; BEGIN conteudo;};
 
-<reply>{commentExpanded} {printf("#########SUP MY DUDE########"); BEGIN comment;
+<reply>{commentExpanded} {BEGIN comment;
                           if(hasReplies!=1){
                           fprintf(json,"\"hasReplies\" : FALSE,\n");}
                           fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
