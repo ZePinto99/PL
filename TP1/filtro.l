@@ -6,10 +6,10 @@ commentExpanded \<(form).+
 commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
-content .+{branco}\<\/p\>
-aux     {branco}.+{branco}
+content \<(div){branco}(class)\=\"(comment__content).+
+paragrafo .+[ \t\n]+
 
-%x ler comment reply
+%x ler comment reply conteudo
 
 %s ol
 %s h5
@@ -20,6 +20,7 @@ aux     {branco}.+{branco}
 %s li
 %s data
 %s id
+%s div
 
 %{
 #include<stdio.h>
@@ -45,6 +46,7 @@ CommentThread** replys = NULL;
 
 int comentarios = 0;
 
+char* texto;
 %}
 %option noyywrap
 
@@ -52,9 +54,9 @@ int comentarios = 0;
 
 BEGIN 0;
 
-{commentList}\<li.+   {BEGIN comment; comentarios++; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
+{commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){BEGIN reply; comentarios++;} else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
+<ler>\<li.+ {if(hasReplies==1){BEGIN reply;} else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
 <ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 
@@ -64,7 +66,6 @@ BEGIN 0;
                          writeCommentThread(replys, json, numberOfReplies);
                          fprintf(json,"]\n,");
                          hasReplies = 0; numberOfReplies =0;
-                         comentarios++;
                          };
 
 
@@ -73,7 +74,7 @@ BEGIN 0;
 
 <ler><<EOF>>   {fprintf(json,"]\n"); exit(0);};
 
-<comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext)); comentarios++;};
+<comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
 
 <comment>{commentAuthor} { fprintf(json, "\"user\" : \"%s\",\n", retiraUser(yytext));};
 
@@ -81,11 +82,29 @@ BEGIN 0;
 
 <comment>{timeStamp} {fprintf(json, "\"timestamp\" : \"%s\",\n",retirarTimeStamp(yytext));};
 
-<comment>{content} {fprintf(json,"\"commentText\" : \"%s\",\n",retiraCommentText(yytext));
-                    fprintf(json,"\"likes\" : %d,\n",likes) ;BEGIN ler;};
+<comment>{content} {texto = NULL;BEGIN conteudo; printf("Vou entrar no conteudo\n");};
 
 <comment>{branco} ;
 <comment>.+ ;
+
+<conteudo>{paragrafo} { texto = retiraCommentText(yytext); printf("%s\n", texto);};
+<conteudo>{paragrafo}\<\/p\>  {
+                              comentarios++;
+                              printf("%d\n",comentarios);
+                              texto = retiraCommentText(yytext); printf("%s\n", texto);
+                              if(hasReplies ==1){
+                              BEGIN reply;
+                              replys = malloc(sizeof(CommentThread**));
+                              replys[numberOfReplies-1]= NULL;
+                              }
+                              else{
+                              comentarios++;
+                              printf("%d\n",comentarios);
+                              BEGIN ler;
+                              fprintf(json,"\"commentText\" : \"%s\",\n", texto);
+                              fprintf(json,"\"likes\" : %d,\n",likes);
+                              }
+                              };
 
 <reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
 
@@ -95,10 +114,7 @@ BEGIN 0;
 
 <reply>{timeStamp} { timestampR = retirarTimeStamp(yytext);};
 
-<reply>{content} { commentTextR = retiraCommentText(yytext);
-
-replys = malloc(sizeof(CommentThread**));
-replys[numberOfReplies-1]= NULL;};
+<reply>{content} { BEGIN conteudo;};
 
 
 <reply>{branco} ;
