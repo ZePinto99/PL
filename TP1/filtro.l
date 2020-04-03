@@ -47,7 +47,16 @@ CommentThread** replys = NULL;
 
 int comentarios = 0;
 
-char* texto;
+char* texto = " ";
+
+void concat(char* yytext){
+          char* aux = retiraCommentText(yytext);
+          char* result = (char*) malloc(sizeof(char*)*(strlen(aux) + strlen(texto) + 1));
+          strcpy(result, texto);
+          strcat(result, yytext);
+          texto = result;
+}
+
 %}
 %option noyywrap
 
@@ -83,18 +92,16 @@ BEGIN 0;
 
 <comment>{timeStamp} {fprintf(json, "\"timestamp\" : \"%s\",\n",retirarTimeStamp(yytext));};
 
-<comment>{content} {texto = NULL;BEGIN conteudo; printf("Vou entrar no conteudo\n");};
+<comment>{content} {texto = "";BEGIN conteudo; printf("Vou entrar no conteudo\n");};
 
 <comment>{branco} ;
 <comment>.+ ;
 
-<conteudo>{paragrafo} { char* aux = retiraCommentText(yytext);
-                        texto = (char*)malloc(sizeof(char)*2000);
-                        strncat(texto, aux, (strlen(texto) +1 + strlen(aux) + 1));
+<conteudo>{paragrafo} {
+                        concat(yytext);
                       };
-<conteudo>{paragrafo}<\/p> { char* aux = retiraCommentText(yytext);
-                             texto = (char*)malloc(sizeof(char)*2000);
-                             strncat(texto, aux, (strlen(texto) +1 + strlen(aux) + 1));
+<conteudo>{paragrafo}<\/p> {
+                             concat(yytext);
                              printf("%s\n", texto);
                              if(hasReplies ==1){
                               comentarios++;
@@ -119,7 +126,7 @@ BEGIN 0;
 
 <reply>{timeStamp} { timestampR = retirarTimeStamp(yytext);};
 
-<reply>{content} { BEGIN conteudo;};
+<reply>{content} {texto = ""; BEGIN conteudo;};
 
 
 <reply>{branco} ;
@@ -132,6 +139,7 @@ int main(int argc, char **argv){
   json = fopen("commentThread.json","w");
   fprintf(json, "commentThread[\n{\n");
   yylex();
+  texto = " ";
 
   fclose(yyin);
   return 0;
