@@ -2,14 +2,14 @@
 
 typedef struct CommentThread{
     char* id;
-	char *user;
-	char *date;
+	char* user;
+	char* date;
 	char* timestamp;
-	char *commentText;
+	char* commentText;
 	int likes;
 	int hasReplies;
 	int numberOfReplies;
-	char **replies;
+	char** replies;
 }CommentThread;   	
 
 CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp, char* commentText, int likes);

@@ -1,4 +1,4 @@
-commentThread[
+"commentThread" : [
 {
 "id" : "06de7129-6167-49cd-d330-08d743683e5c"
 "user" : "PdellaF ",
@@ -8,8 +8,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "2c5940ee-754e-41f7-d893-08d748126a85",
 "user" : "PEDROA Santos ",
 "date" : "2019-10-03",
@@ -18,8 +18,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "7e2b2bb1-f760-463c-c70e-08d747278411",
 "user" : "José  Carvalho ",
 "date" : "2019-10-03",
@@ -28,8 +28,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "40458a7c-d75f-4bd8-4565-08d7471e83ae",
 "user" : "Clarisse Vilanova ",
 "date" : "2019-10-03",
@@ -38,8 +38,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "79818f28-ecf7-4e37-d2d1-08d743683e5c",
 "user" : "Carla Moreira ",
 "date" : "2019-10-03",
@@ -48,8 +48,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "0657344d-5494-45a8-d2d0-08d743683e5c",
 "user" : "Carla Moreira ",
 "date" : "2019-10-03",
@@ -58,8 +58,8 @@ commentThread[
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "8f949889-2606-4749-1c42-08d7471cb23d",
 "user" : "Joao Vieira de Sousa ",
 "date" : "2019-10-02",
@@ -68,14 +68,14 @@ commentThread[
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Vieira 
-date : 2019-10-03
-timestamp : 03.10.2019 00:10
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Vieira "
+"date : 2019-10-03"
+"timestamp : 03.10.2019 00:10"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "4df407e0-f136-426e-d2ca-08d743683e5c",
 "user" : "Felipe Azyral ",
@@ -85,8 +85,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "bfab321a-12eb-4b04-d2c8-08d743683e5c",
 "user" : "Felipe Azyral ",
 "date" : "2019-10-02",
@@ -95,8 +95,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "a8fcc532-a01e-4500-c6fd-08d747278411",
 "user" : "Felipe Azyral ",
 "date" : "2019-10-02",
@@ -105,14 +105,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Carla Moreira 
-date : 2019-10-03
-timestamp : 03.10.2019 00:11
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Carla Moreira "
+"date : 2019-10-03"
+"timestamp : 03.10.2019 00:11"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "9361537c-0119-46a1-d2c0-08d743683e5c",
 "date" : "2019-10-02",
@@ -121,14 +121,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Vieira 
-date : 2019-10-02
-timestamp : 02.10.2019 22:44
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Vieira "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 22:44"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "df3be266-2482-4ebc-c6f7-08d747278411",
 "user" : "Vieira ",
@@ -138,8 +138,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "71b98d5b-bd8b-4ce7-d2bf-08d743683e5c",
 "user" : "Napoleon Bonaparte ",
 "date" : "2019-10-02",
@@ -148,14 +148,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : ana cristina 
-date : 2019-10-03
-timestamp : 03.10.2019 07:46
-commentText : p
-likes : 0}
+"id : (null)"
+"user : ana cristina "
+"date : 2019-10-03"
+"timestamp : 03.10.2019 07:46"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "098ab01f-c90e-4593-3b37-08d7471dd7c5",
 "user" : "Anjo Caído ",
@@ -165,8 +165,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "f0ec69df-3890-4683-0a0c-08d7471b2fc4",
 "user" : "jorge morais ",
 "date" : "2019-10-02",
@@ -175,8 +175,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "10301e5a-6d38-480e-4e24-08d7471b40f9",
 "user" : "José Lima ",
 "date" : "2019-10-02",
@@ -185,8 +185,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "fcc4a1f5-cf6c-4bd8-454c-08d7471e83ae",
 "user" : "José P. ",
 "date" : "2019-10-02",
@@ -195,8 +195,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "3bbad82f-4a9a-4ca7-4e1d-08d7471b40f9",
 "user" : "José Carvalho ",
 "date" : "2019-10-02",
@@ -205,8 +205,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "b73a8a17-59ba-4f01-d2a9-08d743683e5c",
 "user" : "OldVic1 ",
 "date" : "2019-10-02",
@@ -215,14 +215,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : OldVic1 
-date : 2019-10-03
-timestamp : 03.10.2019 07:16
-commentText : p
-likes : 0}
+"id : (null)"
+"user : OldVic1 "
+"date : 2019-10-03"
+"timestamp : 03.10.2019 07:16"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "1cb46708-9b2b-48e0-d2a3-08d743683e5c",
 "user" : "Luis Morgado ",
@@ -232,8 +232,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "b0287f44-0e6a-4fde-3b19-08d7471dd7c5",
 "user" : "OldVic1 ",
 "date" : "2019-10-02",
@@ -242,14 +242,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Conde do Cruzeiro 
-date : 2019-10-02
-timestamp : 02.10.2019 16:11
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Conde do Cruzeiro "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 16:11"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "8bab57a7-e338-478b-09ef-08d7471b2fc4",
 "user" : "OldVic1 ",
@@ -259,14 +259,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Conde do Cruzeiro 
-date : 2019-10-03
-timestamp : 03.10.2019 10:47
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Conde do Cruzeiro "
+"date : 2019-10-03"
+"timestamp : 03.10.2019 10:47"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "76f78ad0-463f-41bc-c6dc-08d747278411",
 "user" : "Gabriel Moreira ",
@@ -276,8 +276,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "83471571-a6b0-41b5-09e9-08d7471b2fc4",
 "user" : "Fernando P Teixeira ",
 "date" : "2019-10-02",
@@ -286,14 +286,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Tiradentes 
-date : 2019-10-02
-timestamp : 02.10.2019 16:07
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Tiradentes "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 16:07"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "f086ec7e-5142-4b5f-c6d3-08d747278411",
 "user" : "José Manuel Martins ",
@@ -303,8 +303,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "3cd69c94-133f-4ab1-c6d2-08d747278411",
 "user" : "OldVic1 ",
 "date" : "2019-10-02",
@@ -313,14 +313,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : OldVic1 
-date : 2019-10-02
-timestamp : 02.10.2019 15:20
-commentText : p
-likes : 0}
+"id : (null)"
+"user : OldVic1 "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 15:20"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "8d6fb860-ec10-451e-1c1f-08d7471cb23d",
 "user" : "Gabriela Gabriela ",
@@ -330,8 +330,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "4fc25923-51ca-4a4d-4e0a-08d7471b40f9",
 "user" : "MANUEL ARAÚJO ",
 "date" : "2019-10-02",
@@ -340,8 +340,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "93015f5d-7878-4ac6-d297-08d743683e5c",
 "user" : "MTeixeira ",
 "date" : "2019-10-02",
@@ -350,8 +350,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "add6b3df-a78c-4ab7-d295-08d743683e5c",
 "user" : "ana cristina ",
 "date" : "2019-10-02",
@@ -360,8 +360,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "e7407575-71cd-43be-c6cb-08d747278411",
 "user" : "Conde do Cruzeiro ",
 "date" : "2019-10-02",
@@ -370,14 +370,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Conde do Cruzeiro 
-date : 2019-10-02
-timestamp : 02.10.2019 16:08
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Conde do Cruzeiro "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 16:08"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "965452eb-017b-4db9-d293-08d743683e5c",
 "user" : "trosario51 ",
@@ -387,8 +387,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "38fc8e30-c4f3-4e8f-c6c7-08d747278411",
 "user" : "Francisco Arantes ",
 "date" : "2019-10-02",
@@ -397,8 +397,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "6a8f2f6f-be84-44a1-09da-08d7471b2fc4",
 "user" : "Em viagem, definitivamente ",
 "date" : "2019-10-02",
@@ -407,14 +407,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Em viagem, definitivamente 
-date : 2019-10-02
-timestamp : 02.10.2019 16:33
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Em viagem, definitivamente "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 16:33"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "7557e2d5-a40b-4c37-4dff-08d7471b40f9",
 "user" : "Ceratioidei ",
@@ -424,8 +424,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "b8d3843f-6ed9-4aea-d287-08d743683e5c",
 "user" : "agany ",
 "date" : "2019-10-02",
@@ -434,14 +434,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Marco Silva 
-date : 2019-10-02
-timestamp : 02.10.2019 11:53
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Marco Silva "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 11:53"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "28577712-f899-4968-1c0f-08d7471cb23d",
 "user" : "GMA ",
@@ -451,8 +451,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "6298f666-c380-46ab-4dfd-08d7471b40f9",
 "user" : "Maria Henriques ",
 "date" : "2019-10-02",
@@ -461,8 +461,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "26a8a2c2-620c-4402-09d8-08d7471b2fc4",
 "user" : "gssilva1956 ",
 "date" : "2019-10-02",
@@ -471,8 +471,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "1b8ad4b0-1f7b-4aa9-3b03-08d7471dd7c5",
 "user" : "mamaciel ",
 "date" : "2019-10-02",
@@ -481,8 +481,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "57e4b40a-c4a3-4121-1c0d-08d7471cb23d",
 "user" : "Leitor Registado ",
 "date" : "2019-10-02",
@@ -491,8 +491,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "50761482-4230-4c3e-09d6-08d7471b2fc4",
 "user" : "A. Martins ",
 "date" : "2019-10-02",
@@ -501,8 +501,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "b64fe9e9-1eaa-4f36-d284-08d743683e5c",
 "user" : "Coletivo Criatura ",
 "date" : "2019-10-02",
@@ -511,8 +511,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "0eec1620-e98e-4224-4a48-08d74634b397",
 "user" : "José Gaspar.823523 ",
 "date" : "2019-10-02",
@@ -521,8 +521,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "8ccabba4-f4cc-4943-4a47-08d74634b397",
 "user" : "José Gaspar.823523 ",
 "date" : "2019-10-02",
@@ -531,8 +531,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "6fa67690-cf8a-4fb7-0e6e-08d746379307",
 "user" : "antonio rocha ",
 "date" : "2019-10-02",
@@ -541,8 +541,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "f4b755ab-6e3b-4159-4a46-08d74634b397",
 "user" : "Makidada ",
 "date" : "2019-10-02",
@@ -551,14 +551,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : GMA 
-date : 2019-10-02
-timestamp : 02.10.2019 11:07
-commentText : p
-likes : 0}
+"id : (null)"
+"user : GMA "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 11:07"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "c94d7daa-cebd-4313-0e6a-08d746379307",
 "user" : "Jose ",
@@ -568,14 +568,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Makidada 
-date : 2019-10-02
-timestamp : 02.10.2019 10:25
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Makidada "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 10:25"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "79081d30-dc73-435c-4a43-08d74634b397",
 "user" : "GMA ",
@@ -585,14 +585,14 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : ricardo martins 
-date : 2019-10-02
-timestamp : 02.10.2019 14:52
-commentText : p
-likes : 0}
+"id : (null)"
+"user : ricardo martins "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 14:52"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,"id" : "9831cb8c-50b5-4777-276f-08d74633975a",
 "user" : "Manuel Cruz ",
@@ -602,8 +602,8 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : FALSE,
 "numberOfReplies" : 0,
-
 "replys" []
+
 ,"id" : "87499609-7d5b-406e-276e-08d74633975a",
 "user" : "Antonio Paulo ",
 "date" : "2019-10-02",
@@ -612,13 +612,13 @@ likes : 0}
 "likes" : "0",
 "hasReplies" : TRUE,
 "numberOfReplies" : 1,
-
 "replys" [{
-id : (null)
-user : Paulo Valente 
-date : 2019-10-02
-timestamp : 02.10.2019 11:08
-commentText : p
-likes : 0}
+"id : (null)"
+"user : Paulo Valente "
+"date : 2019-10-02"
+"timestamp : 02.10.2019 11:08"
+"commentText : p"
+"likes : 0}"
+
 ]
 ,

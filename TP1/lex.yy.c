@@ -1056,9 +1056,9 @@ YY_RULE_SETUP
 #line 72 "filtro.l"
 { if(hasReplies!=1){
                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
-                         fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
+                         fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                          writeCommentThread(replys, json, numberOfReplies);
-                         fprintf(json,"]\n,");
+                         fprintf(json,"]\n\n,");
                          hasReplies = 0; numberOfReplies =0;
                          };
 	YY_BREAK
@@ -1075,7 +1075,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case YY_STATE_EOF(ler):
 #line 84 "filtro.l"
-{fprintf(json,"]\n"); exit(0);};
+{fprintf(json,"\n}\n]"); exit(0);};
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
@@ -1129,64 +1129,60 @@ YY_RULE_SETUP
 #line 102 "filtro.l"
 {
                   concat(yytext);
-                  //retiraCommentText( texto);
                   printf("%s\n",retiraCommentText( texto));
                   if(hasReplies ==1){
-                  comentarios++;
-                  //printf("%d\n",comentarios);
                   BEGIN reply;
                   replys = malloc(sizeof(CommentThread**));
                   replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);
                   }
                   else{
-                              comentarios++;
-                            //  printf("%d\n",comentarios);
-                              BEGIN ler;
-                              fprintf(json,"\"commentText\" : \"%s\",\n", texto);
-                              fprintf(json,"\"likes\" : \"%d\",\n",likes);
-                              }};
+                  comentarios++;
+                  BEGIN ler;
+                  fprintf(json,"\"commentText\" : \"%s\",\n", texto);
+                  fprintf(json,"\"likes\" : \"%d\",\n",likes);
+                  }};
 	YY_BREAK
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 121 "filtro.l"
+#line 117 "filtro.l"
 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 123 "filtro.l"
+#line 119 "filtro.l"
 {numberOfReplies++; idR = retiraID(yytext);};
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 125 "filtro.l"
+#line 121 "filtro.l"
 {userR = retiraUser(yytext);};
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 127 "filtro.l"
+#line 123 "filtro.l"
 {dateR = retiraData(yytext);};
 	YY_BREAK
 case 21:
 /* rule 21 can match eol */
 YY_RULE_SETUP
-#line 129 "filtro.l"
+#line 125 "filtro.l"
 { timestampR = retirarTimeStamp(yytext);};
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 131 "filtro.l"
+#line 127 "filtro.l"
 {texto = ""; BEGIN conteudo;};
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 133 "filtro.l"
+#line 129 "filtro.l"
 {BEGIN comment;
                           if(hasReplies!=1){
                           fprintf(json,"\"hasReplies\" : FALSE,\n");}
-                          fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
+                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                           writeCommentThread(replys, json, numberOfReplies);
                           fprintf(json,"]\n,");
                           hasReplies = 0; numberOfReplies =0;};
@@ -1194,20 +1190,20 @@ YY_RULE_SETUP
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 141 "filtro.l"
+#line 137 "filtro.l"
 ;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 142 "filtro.l"
+#line 138 "filtro.l"
 ;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 144 "filtro.l"
+#line 140 "filtro.l"
 ECHO;
 	YY_BREAK
-#line 1211 "lex.yy.c"
+#line 1207 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 case YY_STATE_EOF(reply):
@@ -2225,13 +2221,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 144 "filtro.l"
+#line 140 "filtro.l"
 
 
 int main(int argc, char **argv){
   yyin = fopen("Publico_extraction_portuguese_comments_4.html","r");
   json = fopen("commentThread.json","w");
-  fprintf(json, "commentThread[\n{\n");
+  fprintf(json, "\"commentThread\" : [\n{\n");
   yylex();
   texto = " ";
 

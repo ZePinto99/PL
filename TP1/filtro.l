@@ -71,9 +71,9 @@ BEGIN 0;
 
 <ler>{commentExpanded} { if(hasReplies!=1){
                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
-                         fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
+                         fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                          writeCommentThread(replys, json, numberOfReplies);
-                         fprintf(json,"]\n,");
+                         fprintf(json,"]\n\n,");
                          hasReplies = 0; numberOfReplies =0;
                          };
 
@@ -81,7 +81,7 @@ BEGIN 0;
 <ler>.+ ;
 <ler>\n ;
 
-<ler><<EOF>>   {fprintf(json,"]\n"); exit(0);};
+<ler><<EOF>>   {fprintf(json,"\n}\n]"); exit(0);};
 
 <comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
 
@@ -101,22 +101,18 @@ BEGIN 0;
                       };
 <conteudo>\<\/p> {
                   concat(yytext);
-                  //retiraCommentText( texto);
                   printf("%s\n",retiraCommentText( texto));
                   if(hasReplies ==1){
-                  comentarios++;
-                  //printf("%d\n",comentarios);
                   BEGIN reply;
                   replys = malloc(sizeof(CommentThread**));
                   replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);
                   }
                   else{
-                              comentarios++;
-                            //  printf("%d\n",comentarios);
-                              BEGIN ler;
-                              fprintf(json,"\"commentText\" : \"%s\",\n", texto);
-                              fprintf(json,"\"likes\" : \"%d\",\n",likes);
-                              }};
+                  comentarios++;
+                  BEGIN ler;
+                  fprintf(json,"\"commentText\" : \"%s\",\n", texto);
+                  fprintf(json,"\"likes\" : \"%d\",\n",likes);
+                  }};
 
 <conteudo>{branco};
 
@@ -133,7 +129,7 @@ BEGIN 0;
 <reply>{commentExpanded} {BEGIN comment;
                           if(hasReplies!=1){
                           fprintf(json,"\"hasReplies\" : FALSE,\n");}
-                          fprintf(json,"\"numberOfReplies\" : %d,\n\n",numberOfReplies);
+                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                           writeCommentThread(replys, json, numberOfReplies);
                           fprintf(json,"]\n,");
                           hasReplies = 0; numberOfReplies =0;};
@@ -146,7 +142,7 @@ BEGIN 0;
 int main(int argc, char **argv){
   yyin = fopen("Publico_extraction_portuguese_comments_4.html","r");
   json = fopen("commentThread.json","w");
-  fprintf(json, "commentThread[\n{\n");
+  fprintf(json, "\"commentThread\" : [\n{\n");
   yylex();
   texto = " ";
 
