@@ -15,11 +15,6 @@ CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp
     return c;
 }
 
-char* saveReply(char* user, char* date) {
-    char* token;
-    sprintf(token, "ID %s and date: %s \n", user, date);
-    return token;
-}
 
 void writeCommentThread(CommentThread** c, FILE* json, int size) {
     fprintf(json, "\"replys\" [");
@@ -30,8 +25,9 @@ void writeCommentThread(CommentThread** c, FILE* json, int size) {
         fprintf(json, "\"date\" : %s\"\n", c[i]->date);
         fprintf(json, "\"timestamp\" : %s\"\n", c[i]->timestamp);
         fprintf(json, "\"commentText\" : %s\"\n", c[i]->commentText);
-        if (size == 1) fprintf(json, "\"likes\" : %d}\"", c[i]->likes);
-        else  fprintf(json, "\"likes\" : %d}\"\n,", c[i]->likes);
+        if (size == 1){ fprintf(json, "\"likes\" : %d}", c[i]->likes);}
+        else {if(i==size-1) fprintf(json, "\"likes\" : %d}", c[i]->likes);
+                else {fprintf(json, "\"likes\" : %d},", c[i]->likes);}}
     }
 }
 
@@ -97,22 +93,27 @@ char* retirarTimeStamp(char* str) {
 }
 
 //char* retiraCommentText
-/*p>
-                Artigo de leitura obrigatória para todos os jornalistas analisarem e re-educarem-se. A classe jornalística é um coito de acéfalos e analfabetos.
-            </p>*/
 char* retiraCommentText(char* str) {
-    char* token; char* token2;
+    char* token;char* token2;char* tok;
     token = strtok(str, ">");
     token = strtok(NULL, " ");
     token = strtok(NULL, "<");
-    while (token[0] == ' ')
-        token++;
-    int i = 0;
-    token2 = (char*)malloc(sizeof(char*) * (strlen(token)));
-    while (token[i] != '\n') {
-        token2[i] = token[i];
-        i++;
-    }
-    //printf(token2);
-    return(token2);
+    while (token[0] == ' ') token++;
+    int i=0;
+    token2 = (char*) malloc(sizeof(char*)*(strlen(token)));
+    while(token[i+14]!='\0'){
+        token2[i]=token[i];
+        i++;}
+    int k =0;
+    tok = (char*) malloc(sizeof(char*)*i);
+    while(token2[k]!='\0'){
+        for(int f=k; f<8+k;f++){
+            if(token2[f]!='\0'&& (token2[f]!=' ' && token2[f]!='\n')){
+                break;}
+            if(f==k+7) return tok;}
+        tok[k]=token2[k];
+        k++;}
+//printf(token2);
+    return(tok);
 }
+

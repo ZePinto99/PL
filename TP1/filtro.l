@@ -18,8 +18,6 @@ paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“
 %s comment__permalink
 %s form
 %s li
-%s data
-%s id
 %s div
 
 %{
@@ -28,7 +26,7 @@ paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“
 #include <stdlib.h>
 #include"thread.h"
 
-char *id = NULL;
+
 int hasReplies =0;
 int likes=0;
 int numberOfReplies =0;
@@ -39,9 +37,6 @@ char userR[100];
 int likesR =0;
 char dateR[100];
 char timestampR[100];
-char *commentTextR = NULL;
-
-CommentThread* reply;
 CommentThread** replys = NULL;
 
 int comentarios = 0;
@@ -64,18 +59,20 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext)); BEGIN reply;numberOfReplies++;} else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
+<ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext)); BEGIN reply;numberOfReplies++;}
+             else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
-<ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
+<ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));
+                    BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n");}
 
 <ler>{commentExpanded} { if(hasReplies!=1){
-                         fprintf(json,"\"hasReplies\" : FALSE,\n");}
+                            fprintf(json,"\"hasReplies\" : FALSE,\n");}
                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                          writeCommentThread(replys, json, numberOfReplies);
-                         if(comentarios<84){ fprintf(json,"]\n\n,");}
+                         if(comentarios<84){
+                            fprintf(json,"],\n\n");}
                          else{fprintf(json,"]\n"); }
-                         hasReplies = 0; numberOfReplies =0;
-                         };
+                         hasReplies = 0; numberOfReplies =0;};
 
 
 <ler>.+ ;
