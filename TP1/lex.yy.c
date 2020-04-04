@@ -1129,8 +1129,8 @@ YY_RULE_SETUP
 #line 102 "filtro.l"
 {
                   concat(yytext);
-                  retiraCommentText( texto);
-                  //printf("%s\n",retiraCommentText( texto));
+                  //retiraCommentText( texto);
+                  printf("%s\n",retiraCommentText( texto));
                   if(hasReplies ==1){
                   comentarios++;
                   //printf("%d\n",comentarios);

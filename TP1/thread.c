@@ -103,12 +103,15 @@ char*  retirarTimeStamp(char *str) {
 char* retiraCommentText(char * str){
     char *token;
     token=strtok(str,">");
-    token=strtok(NULL," "); 
+    token=strtok(NULL," ");
     token=strtok(NULL,"<");
-    printf("\n CUmentário: %s \n",token);
+    while(token[0]==' ')
+        token++;
+    //printf("\n CUmentário: %s \n",token);
 
     return(token);
 }
+
 
 
 //int retiraLikes
