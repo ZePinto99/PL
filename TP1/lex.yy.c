@@ -702,11 +702,11 @@ int likes=0;
 int numberOfReplies =0;
 FILE *json;
 
-char idR[100];
-char userR[100];
+char idR[40];
+char userR[50];
 int likesR =0;
-char dateR[100];
-char timestampR[100];
+char dateR[10];
+char timestampR[30];
 CommentThread** replys = NULL;
 
 int comentarios = 0;
