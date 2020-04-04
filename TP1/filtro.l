@@ -28,11 +28,10 @@ paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“
 #include <stdlib.h>
 #include"thread.h"
 
-
+char *id;
 int hasReplies =0;
 int likes=0;
 int numberOfReplies =0;
-char **replies = NULL;
 FILE *json;
 
 char *idR;
@@ -65,9 +64,9 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){BEGIN reply;} else{BEGIN comment;fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
+<ler>\<li.+ {if(hasReplies==1){BEGIN reply;numberOfReplies++;} else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
-<ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(char*));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
+<ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 
 <ler>{commentExpanded} { if(hasReplies!=1){
                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
@@ -83,7 +82,7 @@ BEGIN 0;
 
 <ler><<EOF>>   {fprintf(json,"\n}\n]"); exit(0);};
 
-<comment>\<li.+ {fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
+
 
 <comment>{commentAuthor} { fprintf(json, "\"user\" : \"%s\",\n", retiraUser(yytext));};
 
@@ -101,11 +100,10 @@ BEGIN 0;
                       };
 <conteudo>\<\/p> {
                   concat(yytext);
-                  printf("%s\n",retiraCommentText( texto));
+                  texto=retiraCommentText(texto);
                   if(hasReplies ==1){
-                  BEGIN reply;
-                  replys = malloc(sizeof(CommentThread**));
                   replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);
+                  BEGIN ler;
                   }
                   else{
                   comentarios++;
@@ -114,9 +112,8 @@ BEGIN 0;
                   fprintf(json,"\"likes\" : \"%d\",\n",likes);
                   }};
 
-<conteudo>{branco};
 
-<reply>\<li {numberOfReplies++; idR = retiraID(yytext);};
+<reply>\<li.+ {idR=retiraID(yytext);};
 
 <reply>{commentAuthor}  {userR = retiraUser(yytext);};
 
@@ -126,13 +123,6 @@ BEGIN 0;
 
 <reply>{content} {texto = ""; BEGIN conteudo;};
 
-<reply>{commentExpanded} {BEGIN comment;
-                          if(hasReplies!=1){
-                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
-                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
-                          writeCommentThread(replys, json, numberOfReplies);
-                          fprintf(json,"]\n,");
-                          hasReplies = 0; numberOfReplies =0;};
 
 <reply>{branco} ;
 <reply>.+ ;

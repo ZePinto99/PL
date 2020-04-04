@@ -22,7 +22,6 @@ char* saveReply(char* user, char* date) {
 }
 
 void writeCommentThread(CommentThread** c, FILE* json, int size) {
-
     fprintf(json, "\"replys\" [");
     for (int i = 0; i < size; i++) {
         fprintf(json, "{\n");
@@ -31,7 +30,8 @@ void writeCommentThread(CommentThread** c, FILE* json, int size) {
         fprintf(json, "\"date : %s\"\n", c[i]->date);
         fprintf(json, "\"timestamp : %s\"\n", c[i]->timestamp);
         fprintf(json, "\"commentText : %s\"\n", c[i]->commentText);
-        fprintf(json, "\"likes : %d}\"\n\n", c[i]->likes);
+        if(size==1) fprintf(json, "\"likes : %d}\"", c[i]->likes);
+        else  fprintf(json, "\"likes : %d}\"\n,", c[i]->likes);
     }
 }
 
@@ -107,7 +107,5 @@ char* retiraCommentText(char* str) {
     token = strtok(NULL, "<");
     while (token[0] == ' ')
         token++;
-    printf("\n CUmentário: %s \n", token);
-
     return(token);
 }
