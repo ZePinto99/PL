@@ -111,6 +111,8 @@ BEGIN 0;
                   fprintf(json,"\"likes\" : \"%d\",\n",likes);
                   }};
 
+<conteudo>{branco} ;
+
 
 <reply>\<li.+ {sprintf(idR, "%s", retiraID(yytext));};
 
