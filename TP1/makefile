@@ -7,8 +7,5 @@ thread.o : thread.c
 lex.yy.o : lex.yy.c
 		gcc -c lex.yy.c
 
-thread.c thread.h: thread.c
-		gcc -c thread.c
-
 lex.yy.c : filtro.l thread.h
 		flex filtro.l
