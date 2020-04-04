@@ -7,7 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content \<(div){branco}(class)\=\"(comment__content).+
-paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“—]+[ \t\n]+
+paragrafo <p[ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“—]+[ \t\n]+
 
 %x ler comment reply conteudo
 
