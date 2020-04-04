@@ -101,7 +101,8 @@ BEGIN 0;
                       };
 <conteudo>\<\/p> {
                   concat(yytext);
-                  printf("%s\n", texto);
+                  retiraCommentText( texto);
+                  //printf("%s\n",retiraCommentText( texto));
                   if(hasReplies ==1){
                   comentarios++;
                   //printf("%d\n",comentarios);

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 CommentThread* newCommentThread(char* i, char *user,char *date, char* timestamp, char *commentText, int likes){
 			CommentThread *c = (CommentThread *) malloc(sizeof(CommentThread));
@@ -96,11 +97,17 @@ char*  retirarTimeStamp(char *str) {
 }
 
 //char* retiraCommentText
+/*p>
+                Artigo de leitura obrigatória para todos os jornalistas analisarem e re-educarem-se. A classe jornalística é um coito de acéfalos e analfabetos.
+            </p>*/
 char* retiraCommentText(char * str){
-    const char s[3] = "</p";
     char *token;
-    token = strtok(str, s);
-    return token;
+    token=strtok(str,">");
+    token=strtok(NULL," "); 
+    token=strtok(NULL,"<");
+    printf("\n CUmentário: %s \n",token);
+
+    return(token);
 }
 
 
