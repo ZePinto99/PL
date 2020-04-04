@@ -28,17 +28,17 @@ paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“
 #include <stdlib.h>
 #include"thread.h"
 
-char *id;
+char *id = NULL;
 int hasReplies =0;
 int likes=0;
 int numberOfReplies =0;
 FILE *json;
 
-char *idR;
-char *userR;
+char idR[100];
+char userR[100];
 int likesR =0;
-char *dateR = NULL;
-char *timestampR;
+char dateR[100];
+char timestampR[100];
 char *commentTextR = NULL;
 
 CommentThread* reply;
@@ -64,7 +64,7 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){BEGIN reply;numberOfReplies++;} else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
+<ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext)); BEGIN reply;numberOfReplies++;} else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
 <ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n"); }
 
@@ -72,7 +72,8 @@ BEGIN 0;
                          fprintf(json,"\"hasReplies\" : FALSE,\n");}
                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                          writeCommentThread(replys, json, numberOfReplies);
-                         fprintf(json,"]\n\n,");
+                         if(comentarios<84){ fprintf(json,"]\n\n,");}
+                         else{fprintf(json,"]\n"); }
                          hasReplies = 0; numberOfReplies =0;
                          };
 
@@ -99,6 +100,7 @@ BEGIN 0;
                         concat(yytext);
                       };
 <conteudo>\<\/p> {
+                  comentarios++;
                   concat(yytext);
                   texto=retiraCommentText(texto);
                   if(hasReplies ==1){
@@ -113,13 +115,13 @@ BEGIN 0;
                   }};
 
 
-<reply>\<li.+ {idR=retiraID(yytext);};
+<reply>\<li.+ {sprintf(idR, "%s", retiraID(yytext));};
 
-<reply>{commentAuthor}  {userR = retiraUser(yytext);};
+<reply>{commentAuthor}  {sprintf(userR, "%s", retiraUser(yytext));};
 
-<reply>{data} {dateR = retiraData(yytext);};
+<reply>{data} {sprintf(dateR, "%s", retiraData(yytext));};
 
-<reply>{timeStamp} { timestampR = retirarTimeStamp(yytext);};
+<reply>{timeStamp} {sprintf(timestampR, "%s", retirarTimeStamp(yytext));};
 
 <reply>{content} {texto = ""; BEGIN conteudo;};
 

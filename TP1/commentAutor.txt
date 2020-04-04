@@ -1,1 +1,0 @@
-commentAuthor \</(h5){branco}(class)\=\"(comment__author){branco}(class="comment__author").+\>[a-zA-Z|{branco}]\<\/(a)\>
