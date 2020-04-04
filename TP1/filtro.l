@@ -7,7 +7,7 @@ commentAuthor \<(h5).+\>[\n\r]*\<(a).+\<\/(a)\>
 data \<(time).+
 timeStamp \<a{branco}(class)\=\"(comment__permalink).+
 content \<(div){branco}(class)\=\"(comment__content).+
-paragrafo [ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“—]+[ \t\n]+
+paragrafo <p[ "!?,;\-.\n\t-(A-Za-zçãáàâéêõãÚôúíóÉ)0-9:/=>'ªº%?“—]+[ \t\n]+
 
 %x ler comment reply conteudo
 
@@ -32,11 +32,11 @@ int likes=0;
 int numberOfReplies =0;
 FILE *json;
 
-char idR[100];
-char userR[100];
+char idR[40];
+char userR[50];
 int likesR =0;
-char dateR[100];
-char timestampR[100];
+char dateR[10];
+char timestampR[30];
 CommentThread** replys = NULL;
 
 int comentarios = 0;
