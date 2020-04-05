@@ -43,7 +43,7 @@ int comentarios = 0;
 
 char* texto = " ";
 
-void concat(char* yytext){
+void junta(char* yytext){
           char* result = (char*) malloc(sizeof(char*)*(strlen(yytext) + strlen(texto) + 1));
           strcpy(result, texto);
           strcat(result, yytext);
@@ -57,7 +57,7 @@ void concat(char* yytext){
 
 BEGIN 0;
 
-{commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
+{commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
 
 <ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext));BEGIN reply;numberOfReplies++;}
              else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
@@ -96,11 +96,11 @@ BEGIN 0;
 <comment>.+ ;
 
 <conteudo>{paragrafo} {
-                        concat(yytext);
+                        junta(yytext);
                       };
 <conteudo>\<\/p> {
                   comentarios++;
-                  concat(yytext);
+                  junta(yytext);
                   texto=retiraCommentText(texto);
                   if(hasReplies ==1){
                   replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);

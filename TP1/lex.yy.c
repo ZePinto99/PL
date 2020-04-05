@@ -762,7 +762,7 @@ int comentarios = 0;
 
 char* texto = " ";
 
-void concat(char* yytext){
+void junta(char* yytext){
           char* result = (char*) malloc(sizeof(char*)*(strlen(yytext) + strlen(texto) + 1));
           strcpy(result, texto);
           strcat(result, yytext);
@@ -1067,7 +1067,7 @@ YY_RULE_SETUP
 case 2:
 YY_RULE_SETUP
 #line 60 "filtro.l"
-{BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
+{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -1107,7 +1107,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case YY_STATE_EOF(ler):
 #line 82 "filtro.l"
-{fprintf(json,"\n}\n]"); printf("%d\n",comentarios); exit(0);};
+{fprintf(json,"\n}\n]"); exit(0);};
 	YY_BREAK
 case 8:
 /* rule 8 can match eol */
@@ -1154,7 +1154,7 @@ case 15:
 YY_RULE_SETUP
 #line 98 "filtro.l"
 {
-                        concat(yytext);
+                        junta(yytext);
                       };
 	YY_BREAK
 case 16:
@@ -1162,7 +1162,7 @@ YY_RULE_SETUP
 #line 101 "filtro.l"
 {
                   comentarios++;
-                  concat(yytext);
+                  junta(yytext);
                   texto=retiraCommentText(texto);
                   if(hasReplies ==1){
                   replys[numberOfReplies-1]= newCommentThread(idR,userR,dateR,timestampR,texto,0);

@@ -17,17 +17,17 @@ CommentThread* newCommentThread(char i[], char user[], char date[], char timesta
 
 
 void writeCommentThread(CommentThread** c, FILE* json, int size) {
-    fprintf(json, "\"replys\" [");
+    fprintf(json, "\"replys\": [");
     for (int i = 0; i < size; i++) {
         fprintf(json, "{\n");
-        fprintf(json, "\"id\" : \"%s\"\n", c[i]->id);
-        fprintf(json, "\"user\" : \"%s\"\n", c[i]->user);
-        fprintf(json, "\"date\" : \"%s\"\n", c[i]->date);
-        fprintf(json, "\"timestamp\" : \"%s\"\n", c[i]->timestamp);
-        fprintf(json, "\"commentText\" : \"%s\"\n", c[i]->commentText);
-        if (size == 1) { fprintf(json, "\"likes\" : \"%d\"\n}\n", c[i]->likes); }
+        fprintf(json, "\"id\" : \"%s\",\n", c[i]->id);
+        fprintf(json, "\"user\" : \"%s\",\n", c[i]->user);
+        fprintf(json, "\"date\" : \"%s\",\n", c[i]->date);
+        fprintf(json, "\"timestamp\" : \"%s\",\n", c[i]->timestamp);
+        fprintf(json, "\"commentText\" : \"%s\",\n", c[i]->commentText);
+        if (size == 1) { fprintf(json, "\"likes\" : \"%d\"}", c[i]->likes); }
         else {
-            if (i == size - 1) fprintf(json, "\"likes\" : \"%d\"\n}", c[i]->likes);
+            if (i == size - 1) fprintf(json, "\"likes\" : \"%d\"}", c[i]->likes);
             else { fprintf(json, "\"likes\" : %d},", c[i]->likes); }
         }
     }

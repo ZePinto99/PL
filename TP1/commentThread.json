@@ -1,6 +1,6 @@
 "commentThread" : [
 {
-"id" : "06de7129-6167-49cd-d330-08d743683e5c"
+"id" : "06de7129-6167-49cd-d330-08d743683e5c",
 "user" : "PdellaF ",
 "date" : "2019-10-03",
 "timestamp" : "03.10.2019 21:11",
@@ -8,7 +8,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "2c5940ee-754e-41f7-d893-08d748126a85",
 "user" : "PEDROA Santos ",
@@ -18,7 +18,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "7e2b2bb1-f760-463c-c70e-08d747278411",
 "user" : "José  Carvalho ",
@@ -28,7 +28,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "40458a7c-d75f-4bd8-4565-08d7471e83ae",
 "user" : "Clarisse Vilanova ",
@@ -38,7 +38,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "79818f28-ecf7-4e37-d2d1-08d743683e5c",
 "user" : "Carla Moreira ",
@@ -48,7 +48,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "0657344d-5494-45a8-d2d0-08d743683e5c",
 "user" : "Carla Moreira ",
@@ -58,7 +58,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "8f949889-2606-4749-1c42-08d7471cb23d",
 "user" : "Joao Vieira de Sousa ",
@@ -68,15 +68,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "93506ff9-5244-4c37-455e-08d7471e83ae"
-"user" : "Vieira "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 00:10"
-"commentText" : "A central de corrupcao do PSD so da' a mama aos apaniguados, Rui Rio nao vai fugir 'a regra ate porque a ordem dos contabilistas tem umas contas a acertar com o sr Rui Rio quando este la passou e mamou 27000 Euros por ano por 2 sessoes da assembleia geral. No departamento de urbanismo da CM do Porto parece que tambem se mamou la muito por altura do Rui Rio.\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "93506ff9-5244-4c37-455e-08d7471e83ae",
+"user" : "Vieira ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 00:10",
+"commentText" : "A central de corrupcao do PSD so da' a mama aos apaniguados, Rui Rio nao vai fugir 'a regra ate porque a ordem dos contabilistas tem umas contas a acertar com o sr Rui Rio quando este la passou e mamou 27000 Euros por ano por 2 sessoes da assembleia geral. No departamento de urbanismo da CM do Porto parece que tambem se mamou la muito por altura do Rui Rio.\p",
+"likes" : "0"}],
 
 "id" : "4df407e0-f136-426e-d2ca-08d743683e5c",
 "user" : "Felipe Azyral ",
@@ -86,7 +84,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "bfab321a-12eb-4b04-d2c8-08d743683e5c",
 "user" : "Felipe Azyral ",
@@ -96,7 +94,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "a8fcc532-a01e-4500-c6fd-08d747278411",
 "user" : "Felipe Azyral ",
@@ -106,15 +104,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "ee026290-79cd-4e03-3b41-08d7471dd7c5"
-"user" : "Carla Moreira "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 00:11"
-"commentText" : "Nem mais!!! É preciso explicar tudo tim-tim por tim-tim ao Sr. Abrunhosa senão ele não alcança.\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "ee026290-79cd-4e03-3b41-08d7471dd7c5",
+"user" : "Carla Moreira ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 00:11",
+"commentText" : "Nem mais!!! É preciso explicar tudo tim-tim por tim-tim ao Sr. Abrunhosa senão ele não alcança.\p",
+"likes" : "0"}],
 
 "id" : "9361537c-0119-46a1-d2c0-08d743683e5c",
 "user" : "Conta desactivada",
@@ -124,20 +120,19 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 2,
-"replys" [{
-"id" : "5487f533-60aa-45a7-d2cb-08d743683e5c"
-"user" : "Joao Vieira de Sousa "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 22:42"
-"commentText" : "Esqueceste do Sócrates, Penedos Pinho, Sucateiro, Salgado, Bava, etc.\p"
+"replys": [{
+"id" : "5487f533-60aa-45a7-d2cb-08d743683e5c",
+"user" : "Joao Vieira de Sousa ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 22:42",
+"commentText" : "Esqueceste do Sócrates, Penedos Pinho, Sucateiro, Salgado, Bava, etc.\p",
 "likes" : 0},{
-"id" : "29588fa5-b963-43ba-4e31-08d7471b40f9"
-"user" : "Vieira "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 22:44"
-"commentText" : "Nao 'e isso que esta' em questao. O que esta' em questao 'e o facto de um dos pilares fundamentais do Estado, a Justica, estar a conspirar para beneficio de umas das partes. No caso Hilary 'e evidente que o caso dos mails foi empolado pel FBI com o intuito de prejudicar Hilary (o que de facto estou em crer que aconteceu) e nada mais. Se a sra tambem nao se pode queixar muito porque tambem nao jogou limpo, isso ja e' outra questao.\p"
-"likes" : "0"
-}],
+"id" : "29588fa5-b963-43ba-4e31-08d7471b40f9",
+"user" : "Vieira ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 22:44",
+"commentText" : "Nao 'e isso que esta' em questao. O que esta' em questao 'e o facto de um dos pilares fundamentais do Estado, a Justica, estar a conspirar para beneficio de umas das partes. No caso Hilary 'e evidente que o caso dos mails foi empolado pel FBI com o intuito de prejudicar Hilary (o que de facto estou em crer que aconteceu) e nada mais. Se a sra tambem nao se pode queixar muito porque tambem nao jogou limpo, isso ja e' outra questao.\p",
+"likes" : "0"}],
 
 "id" : "df3be266-2482-4ebc-c6f7-08d747278411",
 "user" : "Vieira ",
@@ -147,7 +142,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "71b98d5b-bd8b-4ce7-d2bf-08d743683e5c",
 "user" : "Napoleon Bonaparte ",
@@ -157,26 +152,25 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 3,
-"replys" [{
-"id" : "fd44086e-9125-4b31-3b38-08d7471dd7c5"
-"user" : "Vieira "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 21:18"
-"commentText" : "A direita trauliteira veio aqui confessar-se, trauliteira e ordinario, 'e a marca de agua dos apoiantes da central de corrupcao do PSD.\p"
+"replys": [{
+"id" : "fd44086e-9125-4b31-3b38-08d7471dd7c5",
+"user" : "Vieira ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 21:18",
+"commentText" : "A direita trauliteira veio aqui confessar-se, trauliteira e ordinario, 'e a marca de agua dos apoiantes da central de corrupcao do PSD.\p",
 "likes" : 0},{
-"id" : "92164046-7055-4a2a-0a1b-08d7471b2fc4"
-"user" : "António  Gonçalves "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 01:56"
-"commentText" : "O Napoleon tem vergonha deste socialismo porque não passa de um primário fascista. E também um pobre coitado...\p"
+"id" : "92164046-7055-4a2a-0a1b-08d7471b2fc4",
+"user" : "António  Gonçalves ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 01:56",
+"commentText" : "O Napoleon tem vergonha deste socialismo porque não passa de um primário fascista. E também um pobre coitado...\p",
 "likes" : 0},{
-"id" : "fc579b22-fd67-4254-3b47-08d7471dd7c5"
-"user" : "ana cristina "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 07:46"
-"commentText" : "uma chuva de adjetivos para quem ousa radiografar a governação costa. vieira e antónio gonçalves: ao menos, aprendam a argumentar. a era dos insultos era nos anos 70. cresçam.\p"
-"likes" : "0"
-}],
+"id" : "fc579b22-fd67-4254-3b47-08d7471dd7c5",
+"user" : "ana cristina ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 07:46",
+"commentText" : "uma chuva de adjetivos para quem ousa radiografar a governação costa. vieira e antónio gonçalves: ao menos, aprendam a argumentar. a era dos insultos era nos anos 70. cresçam.\p",
+"likes" : "0"}],
 
 "id" : "098ab01f-c90e-4593-3b37-08d7471dd7c5",
 "user" : "Anjo Caído ",
@@ -186,7 +180,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "f0ec69df-3890-4683-0a0c-08d7471b2fc4",
 "user" : "jorge morais ",
@@ -196,7 +190,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "10301e5a-6d38-480e-4e24-08d7471b40f9",
 "user" : "José Lima ",
@@ -206,7 +200,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "fcc4a1f5-cf6c-4bd8-454c-08d7471e83ae",
 "user" : "José P. ",
@@ -216,7 +210,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "3bbad82f-4a9a-4ca7-4e1d-08d7471b40f9",
 "user" : "José Carvalho ",
@@ -226,7 +220,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "b73a8a17-59ba-4f01-d2a9-08d743683e5c",
 "user" : "OldVic1 ",
@@ -236,20 +230,19 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 2,
-"replys" [{
-"id" : "6bb5bc80-5a8d-49f2-c6fc-08d747278411"
-"user" : "barbosa de almeida "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 22:37"
-"commentText" : "E que tal discutir o programa eleitoral, para esclarecer os eleitores?\p"
+"replys": [{
+"id" : "6bb5bc80-5a8d-49f2-c6fc-08d747278411",
+"user" : "barbosa de almeida ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 22:37",
+"commentText" : "E que tal discutir o programa eleitoral, para esclarecer os eleitores?\p",
 "likes" : 0},{
-"id" : "09959e92-c6cb-4534-0a1f-08d7471b2fc4"
-"user" : "OldVic1 "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 07:16"
-"commentText" : "Para esclarecer os eleitores é crucial saber-se qual a qualidade dos candidatos que irão aplicar o programa eleitoral. As suspeitas sobre Costa deviam ser discutidas agora, antes das eleições.\p"
-"likes" : "0"
-}],
+"id" : "09959e92-c6cb-4534-0a1f-08d7471b2fc4",
+"user" : "OldVic1 ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 07:16",
+"commentText" : "Para esclarecer os eleitores é crucial saber-se qual a qualidade dos candidatos que irão aplicar o programa eleitoral. As suspeitas sobre Costa deviam ser discutidas agora, antes das eleições.\p",
+"likes" : "0"}],
 
 "id" : "1cb46708-9b2b-48e0-d2a3-08d743683e5c",
 "user" : "Luis Morgado ",
@@ -259,7 +252,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "b0287f44-0e6a-4fde-3b19-08d7471dd7c5",
 "user" : "OldVic1 ",
@@ -269,26 +262,25 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 3,
-"replys" [{
-"id" : "4f941980-828b-4f23-09f3-08d7471b2fc4"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 15:51"
-"commentText" : "Quais receios?\p Andas mesmo fora da realidade, o povo português tem o direito de saber o que se passou na realidade em Tancos.\p Não queremos mentiras, nem lavagens de responsabilidades que nos envergonham e nos colocam mal aos olhos da UE, como o caso da Tecnoforma que foi arquivado pela justiça portuguesa e a UE obrigou o país a devolver o dinheiro que deu indevidamente àquela associação criminosa e ainda deu um puxão de orelhas aos nossos tribunais.\p"
+"replys": [{
+"id" : "4f941980-828b-4f23-09f3-08d7471b2fc4",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 15:51",
+"commentText" : "Quais receios?\p Andas mesmo fora da realidade, o povo português tem o direito de saber o que se passou na realidade em Tancos.\p Não queremos mentiras, nem lavagens de responsabilidades que nos envergonham e nos colocam mal aos olhos da UE, como o caso da Tecnoforma que foi arquivado pela justiça portuguesa e a UE obrigou o país a devolver o dinheiro que deu indevidamente àquela associação criminosa e ainda deu um puxão de orelhas aos nossos tribunais.\p",
 "likes" : 0},{
-"id" : "514631f8-320c-4c90-d2a6-08d743683e5c"
-"user" : "OldVic1 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:03"
-"commentText" : "Olhe essa pressão arterial, que está a levar a desvios de assunto. E deixe de falar pelo povo português.\p"
+"id" : "514631f8-320c-4c90-d2a6-08d743683e5c",
+"user" : "OldVic1 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:03",
+"commentText" : "Olhe essa pressão arterial, que está a levar a desvios de assunto. E deixe de falar pelo povo português.\p",
 "likes" : 0},{
-"id" : "062583ee-fe7a-495a-c6e0-08d747278411"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:11"
-"commentText" : "E salta sapo e salta sapo.\p Estás mesmo a ficar atabafado, será que vais aguentar até domingo?\p Já nem consegues interpretar correctamente o que lês, olha isso indica falta de oxigenação do cérebro.\p Tem cuidado com os sintomas.\p"
-"likes" : "0"
-}],
+"id" : "062583ee-fe7a-495a-c6e0-08d747278411",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:11",
+"commentText" : "E salta sapo e salta sapo.\p Estás mesmo a ficar atabafado, será que vais aguentar até domingo?\p Já nem consegues interpretar correctamente o que lês, olha isso indica falta de oxigenação do cérebro.\p Tem cuidado com os sintomas.\p",
+"likes" : "0"}],
 
 "id" : "8bab57a7-e338-478b-09ef-08d7471b2fc4",
 "user" : "OldVic1 ",
@@ -298,44 +290,43 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 6,
-"replys" [{
-"id" : "c8b2226c-cde5-44d8-3b1a-08d7471dd7c5"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 15:45"
-"commentText" : "Só depois de compararmos a votação conseguida pela PaF em 2015 e os votos que o PS conseguir nas eleições de domingo é que podemos avançar para chegar ao seu desconforto.\p"
+"replys": [{
+"id" : "c8b2226c-cde5-44d8-3b1a-08d7471dd7c5",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 15:45",
+"commentText" : "Só depois de compararmos a votação conseguida pela PaF em 2015 e os votos que o PS conseguir nas eleições de domingo é que podemos avançar para chegar ao seu desconforto.\p",
 "likes" : 0},{
-"id" : "35680ba0-9b69-4972-4e13-08d7471b40f9"
-"user" : "OldVic1 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:05"
-"commentText" : "Eu espero, já falta pouco.\p"
+"id" : "35680ba0-9b69-4972-4e13-08d7471b40f9",
+"user" : "OldVic1 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:05",
+"commentText" : "Eu espero, já falta pouco.\p",
 "likes" : 0},{
-"id" : "70293d93-28e4-4617-0a08-08d7471b2fc4"
-"user" : "ALRB "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 19:36"
-"commentText" : "Conde Cruzeiro, as duas eleições não são comparáveis. A de 2015 foi depois do PS ter metido o país em bancarrota e o PSD ter tido que tomar medidas impopulares para tirar o país da bancarrota em que o PS o meteu (nunca é demais repetir porque os fanáticos são pouco racionais). Já estas  eleições ocorrem depois do PSD ter tirado o país da bancarrota e posto a economia a funcionar. O mérito do Centeno e do PS foi seguirem a política do governo anterior mutatis mutandis.\p"
+"id" : "70293d93-28e4-4617-0a08-08d7471b2fc4",
+"user" : "ALRB ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 19:36",
+"commentText" : "Conde Cruzeiro, as duas eleições não são comparáveis. A de 2015 foi depois do PS ter metido o país em bancarrota e o PSD ter tido que tomar medidas impopulares para tirar o país da bancarrota em que o PS o meteu (nunca é demais repetir porque os fanáticos são pouco racionais). Já estas  eleições ocorrem depois do PSD ter tirado o país da bancarrota e posto a economia a funcionar. O mérito do Centeno e do PS foi seguirem a política do governo anterior mutatis mutandis.\p",
 "likes" : 0},{
-"id" : "4037b319-fb6b-46c2-c701-08d747278411"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 23:41"
-"commentText" : "Não esquecer os 76 mil milhões que Passos recebeu e derreteu, que se juntarmos os 10 Mil milhões que recebeu da venda em saldo das empresas públicas, perfaz a quantia de 86 mil milhões, nunca um governo em Portugal teve tanto dinheiro, nem tanto dinheiro foi sacado ao país em tão pouco tempo, os números indicam que foram desviados 30 mil milhões as investigações continuam.\p O mérito do Centeno foi ter posto trancas na porta.\p É esta verdade, que a direita esconde.\p"
+"id" : "4037b319-fb6b-46c2-c701-08d747278411",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 23:41",
+"commentText" : "Não esquecer os 76 mil milhões que Passos recebeu e derreteu, que se juntarmos os 10 Mil milhões que recebeu da venda em saldo das empresas públicas, perfaz a quantia de 86 mil milhões, nunca um governo em Portugal teve tanto dinheiro, nem tanto dinheiro foi sacado ao país em tão pouco tempo, os números indicam que foram desviados 30 mil milhões as investigações continuam.\p O mérito do Centeno foi ter posto trancas na porta.\p É esta verdade, que a direita esconde.\p",
 "likes" : 0},{
-"id" : "aacfbf06-2147-42d2-d2d4-08d743683e5c"
-"user" : "OldVic1 "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 07:20"
-"commentText" : "Disparate completo. Os 78 mil milhões foram para compensar o défice de 11% entregue por Sócrates enquanto esse défice era gradualmente levado aos 3% em 4 anos; as privatizações foram para que o sector empresarial do Estado deixasse de sangrar o orçamento e piorar ainda mais a situação da dívida.\p"
+"id" : "aacfbf06-2147-42d2-d2d4-08d743683e5c",
+"user" : "OldVic1 ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 07:20",
+"commentText" : "Disparate completo. Os 78 mil milhões foram para compensar o défice de 11% entregue por Sócrates enquanto esse défice era gradualmente levado aos 3% em 4 anos; as privatizações foram para que o sector empresarial do Estado deixasse de sangrar o orçamento e piorar ainda mais a situação da dívida.\p",
 "likes" : 0},{
-"id" : "f8f6ccbe-823c-4490-0a2a-08d7471b2fc4"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-03"
-"timestamp" : "03.10.2019 10:47"
-"commentText" : "Oh Sarmento, explica lá a este o que eu afirmei no meu comentário.\p Coitado, interrompeu a medicação.\p"
-"likes" : "0"
-}],
+"id" : "f8f6ccbe-823c-4490-0a2a-08d7471b2fc4",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-03",
+"timestamp" : "03.10.2019 10:47",
+"commentText" : "Oh Sarmento, explica lá a este o que eu afirmei no meu comentário.\p Coitado, interrompeu a medicação.\p",
+"likes" : "0"}],
 
 "id" : "76f78ad0-463f-41bc-c6dc-08d747278411",
 "user" : "Gabriel Moreira ",
@@ -345,7 +336,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "83471571-a6b0-41b5-09e9-08d7471b2fc4",
 "user" : "Fernando P Teixeira ",
@@ -355,20 +346,19 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 2,
-"replys" [{
-"id" : "29a7c190-321a-4273-d29c-08d743683e5c"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:23"
-"commentText" : "Aprendeu contigo?\p"
+"replys": [{
+"id" : "29a7c190-321a-4273-d29c-08d743683e5c",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:23",
+"commentText" : "Aprendeu contigo?\p",
 "likes" : 0},{
-"id" : "cab0c8c6-2c6a-46a8-3b1c-08d7471dd7c5"
-"user" : "Tiradentes "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:07"
-"commentText" : "Sempre foi...\p"
-"likes" : "0"
-}],
+"id" : "cab0c8c6-2c6a-46a8-3b1c-08d7471dd7c5",
+"user" : "Tiradentes ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:07",
+"commentText" : "Sempre foi...\p",
+"likes" : "0"}],
 
 "id" : "f086ec7e-5142-4b5f-c6d3-08d747278411",
 "user" : "José Manuel Martins ",
@@ -378,7 +368,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "3cd69c94-133f-4ab1-c6d2-08d747278411",
 "user" : "OldVic1 ",
@@ -388,20 +378,19 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 2,
-"replys" [{
-"id" : "63b4f0b2-5050-47d0-09ec-08d7471b2fc4"
-"user" : "trosario51 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:41"
-"commentText" : "OldVic ,acredita no Pai Natal, ingénuo/a ou ignorante?\p"
+"replys": [{
+"id" : "63b4f0b2-5050-47d0-09ec-08d7471b2fc4",
+"user" : "trosario51 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:41",
+"commentText" : "OldVic ,acredita no Pai Natal, ingénuo/a ou ignorante?\p",
 "likes" : 0},{
-"id" : "a650a280-4ae4-450a-c6dd-08d747278411"
-"user" : "OldVic1 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 15:20"
-"commentText" : "Não acredito no Pai Natal, quer ele seja ingénuo ou ignorante.\p"
-"likes" : "0"
-}],
+"id" : "a650a280-4ae4-450a-c6dd-08d747278411",
+"user" : "OldVic1 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 15:20",
+"commentText" : "Não acredito no Pai Natal, quer ele seja ingénuo ou ignorante.\p",
+"likes" : "0"}],
 
 "id" : "8d6fb860-ec10-451e-1c1f-08d7471cb23d",
 "user" : "Gabriela Gabriela ",
@@ -411,7 +400,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "4fc25923-51ca-4a4d-4e0a-08d7471b40f9",
 "user" : "MANUEL ARAÚJO ",
@@ -421,7 +410,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "93015f5d-7878-4ac6-d297-08d743683e5c",
 "user" : "MTeixeira ",
@@ -431,7 +420,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "add6b3df-a78c-4ab7-d295-08d743683e5c",
 "user" : "ana cristina ",
@@ -441,7 +430,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "e7407575-71cd-43be-c6cb-08d747278411",
 "user" : "Conde do Cruzeiro ",
@@ -451,32 +440,31 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 4,
-"replys" [{
-"id" : "1cc36017-2995-4641-453b-08d7471e83ae"
-"user" : "OldVic1 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:08"
-"commentText" : "Esta crónica é mais do mesmo vindo dos do costume, e para prova basta ver os aplausos que arrancou aos amigos da situação.\p"
+"replys": [{
+"id" : "1cc36017-2995-4641-453b-08d7471e83ae",
+"user" : "OldVic1 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:08",
+"commentText" : "Esta crónica é mais do mesmo vindo dos do costume, e para prova basta ver os aplausos que arrancou aos amigos da situação.\p",
 "likes" : 0},{
-"id" : "0770fe30-023f-4daa-09ea-08d7471b2fc4"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:25"
-"commentText" : "Continuas, com o sapo atravessado na garganta.\p No domingo, engoles o mesmo de uma vez.\p"
+"id" : "0770fe30-023f-4daa-09ea-08d7471b2fc4",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:25",
+"commentText" : "Continuas, com o sapo atravessado na garganta.\p No domingo, engoles o mesmo de uma vez.\p",
 "likes" : 0},{
-"id" : "9b10c27a-e563-4bd6-d2a7-08d743683e5c"
-"user" : "OldVic1 "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:06"
-"commentText" : "Quando é sapo, eu cuspo.\p"
+"id" : "9b10c27a-e563-4bd6-d2a7-08d743683e5c",
+"user" : "OldVic1 ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:06",
+"commentText" : "Quando é sapo, eu cuspo.\p",
 "likes" : 0},{
-"id" : "ddcff505-6ab8-4fe3-09f5-08d7471b2fc4"
-"user" : "Conde do Cruzeiro "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:08"
-"commentText" : "Engana-te, que me divertes.\p Ventila vá-lá, já falta pouco para deixares de estar engasgado com o sapo.\p"
-"likes" : "0"
-}],
+"id" : "ddcff505-6ab8-4fe3-09f5-08d7471b2fc4",
+"user" : "Conde do Cruzeiro ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:08",
+"commentText" : "Engana-te, que me divertes.\p Ventila vá-lá, já falta pouco para deixares de estar engasgado com o sapo.\p",
+"likes" : "0"}],
 
 "id" : "965452eb-017b-4db9-d293-08d743683e5c",
 "user" : "trosario51 ",
@@ -486,7 +474,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "38fc8e30-c4f3-4e8f-c6c7-08d747278411",
 "user" : "Francisco Arantes ",
@@ -496,7 +484,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "6a8f2f6f-be84-44a1-09da-08d7471b2fc4",
 "user" : "Em viagem, definitivamente ",
@@ -506,26 +494,25 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 3,
-"replys" [{
-"id" : "237f7a56-2443-443d-d29a-08d743683e5c"
-"user" : "bitmind "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:11"
-"commentText" : "que raio, é só isso que sabe dizer? não quer fundamentar a sua apreciação sobre o artista? e já agora, escreve mal, diz-se por-se em bicos de pés\p"
+"replys": [{
+"id" : "237f7a56-2443-443d-d29a-08d743683e5c",
+"user" : "bitmind ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:11",
+"commentText" : "que raio, é só isso que sabe dizer? não quer fundamentar a sua apreciação sobre o artista? e já agora, escreve mal, diz-se por-se em bicos de pés\p",
 "likes" : 0},{
-"id" : "1710d95c-6b4f-48b5-3b22-08d7471dd7c5"
-"user" : "Em viagem, definitivamente "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:30"
-"commentText" : "Feerica pobre revisor. Diz-se? E que tenho com isso? Sr. Fernandes é necessário evitar a  a imbecilidade, os falsos, os interesseiros...\p"
+"id" : "1710d95c-6b4f-48b5-3b22-08d7471dd7c5",
+"user" : "Em viagem, definitivamente ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:30",
+"commentText" : "Feerica pobre revisor. Diz-se? E que tenho com isso? Sr. Fernandes é necessário evitar a  a imbecilidade, os falsos, os interesseiros...\p",
 "likes" : 0},{
-"id" : "ebc8652b-eec3-4793-4e18-08d7471b40f9"
-"user" : "Em viagem, definitivamente "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 16:33"
-"commentText" : "Feerica, sobre o artista, não tem voz, as letras são de um kitsch nauseabundo, a música é repetitiva, os óculos próprios de diva barata.... mas o pior é a política. A ideia de que vai agitar as águas.... de cada vez que escreve. Em suma, o estilo é mau, o homem é mau. Mal dito, mal visto...\p"
-"likes" : "0"
-}],
+"id" : "ebc8652b-eec3-4793-4e18-08d7471b40f9",
+"user" : "Em viagem, definitivamente ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 16:33",
+"commentText" : "Feerica, sobre o artista, não tem voz, as letras são de um kitsch nauseabundo, a música é repetitiva, os óculos próprios de diva barata.... mas o pior é a política. A ideia de que vai agitar as águas.... de cada vez que escreve. Em suma, o estilo é mau, o homem é mau. Mal dito, mal visto...\p",
+"likes" : "0"}],
 
 "id" : "7557e2d5-a40b-4c37-4dff-08d7471b40f9",
 "user" : "Ceratioidei ",
@@ -535,7 +522,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "b8d3843f-6ed9-4aea-d287-08d743683e5c",
 "user" : "agany ",
@@ -545,15 +532,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "72cfe6c1-3913-40be-09dd-08d7471b2fc4"
-"user" : "Marco Silva "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 11:53"
-"commentText" : "E o Oliveira e Costa?\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "72cfe6c1-3913-40be-09dd-08d7471b2fc4",
+"user" : "Marco Silva ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 11:53",
+"commentText" : "E o Oliveira e Costa?\p",
+"likes" : "0"}],
 
 "id" : "28577712-f899-4968-1c0f-08d7471cb23d",
 "user" : "GMA ",
@@ -563,7 +548,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "6298f666-c380-46ab-4dfd-08d7471b40f9",
 "user" : "Maria Henriques ",
@@ -573,7 +558,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "26a8a2c2-620c-4402-09d8-08d7471b2fc4",
 "user" : "gssilva1956 ",
@@ -583,7 +568,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "1b8ad4b0-1f7b-4aa9-3b03-08d7471dd7c5",
 "user" : "mamaciel ",
@@ -593,7 +578,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "57e4b40a-c4a3-4121-1c0d-08d7471cb23d",
 "user" : "Leitor Registado ",
@@ -603,7 +588,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "50761482-4230-4c3e-09d6-08d7471b2fc4",
 "user" : "A. Martins ",
@@ -613,7 +598,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "b64fe9e9-1eaa-4f36-d284-08d743683e5c",
 "user" : "Coletivo Criatura ",
@@ -623,7 +608,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "0eec1620-e98e-4224-4a48-08d74634b397",
 "user" : "José Gaspar.823523 ",
@@ -633,7 +618,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "8ccabba4-f4cc-4943-4a47-08d74634b397",
 "user" : "José Gaspar.823523 ",
@@ -643,7 +628,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "6fa67690-cf8a-4fb7-0e6e-08d746379307",
 "user" : "antonio rocha ",
@@ -653,7 +638,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "f4b755ab-6e3b-4159-4a46-08d74634b397",
 "user" : "Makidada ",
@@ -663,15 +648,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "9190a460-7b24-4676-452a-08d7471e83ae"
-"user" : "GMA "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 11:07"
-"commentText" : "Não seria tão radical! Mas anda muito perto da verdade...\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "9190a460-7b24-4676-452a-08d7471e83ae",
+"user" : "GMA ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 11:07",
+"commentText" : "Não seria tão radical! Mas anda muito perto da verdade...\p",
+"likes" : "0"}],
 
 "id" : "c94d7daa-cebd-4313-0e6a-08d746379307",
 "user" : "Jose ",
@@ -681,15 +664,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "1dba9d74-44f8-49e9-4a49-08d74634b397"
-"user" : "Makidada "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 10:25"
-"commentText" : "Também detesto maiorias parlamentares, não vou em partidos, voto em pessoas e na competência que demonstram no exercicio do cargo e, perante factos não há argumentos: Rio  e Cristas são hiper incompetentes, trauliteiros e têm atrás de si uma horda de gente altamente desqualificada e faminta de poder, um perigo atómico para o futuro de Portugal.  O aproveitamento político de Tancos também mudou o meu voto...por vezes o feitiço vira-se contra o feiticeiro Dr. Rio...\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "1dba9d74-44f8-49e9-4a49-08d74634b397",
+"user" : "Makidada ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 10:25",
+"commentText" : "Também detesto maiorias parlamentares, não vou em partidos, voto em pessoas e na competência que demonstram no exercicio do cargo e, perante factos não há argumentos: Rio  e Cristas são hiper incompetentes, trauliteiros e têm atrás de si uma horda de gente altamente desqualificada e faminta de poder, um perigo atómico para o futuro de Portugal.  O aproveitamento político de Tancos também mudou o meu voto...por vezes o feitiço vira-se contra o feiticeiro Dr. Rio...\p",
+"likes" : "0"}],
 
 "id" : "79081d30-dc73-435c-4a43-08d74634b397",
 "user" : "GMA ",
@@ -699,15 +680,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "01399434-b08e-4b4a-d29f-08d743683e5c"
-"user" : "ricardo martins "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 14:52"
-"commentText" : "Exatamente aquilo que acontece comigo, ía abster-me, assim o ps já ganhou mais mu voto.\p"
-"likes" : "0"
-}
-],
+"replys": [{
+"id" : "01399434-b08e-4b4a-d29f-08d743683e5c",
+"user" : "ricardo martins ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 14:52",
+"commentText" : "Exatamente aquilo que acontece comigo, ía abster-me, assim o ps já ganhou mais mu voto.\p",
+"likes" : "0"}],
 
 "id" : "9831cb8c-50b5-4777-276f-08d74633975a",
 "user" : "Manuel Cruz ",
@@ -717,7 +696,7 @@
 "likes" : "0",
 "hasReplies" : "FALSE",
 "numberOfReplies" : 0,
-"replys" [],
+"replys": [],
 
 "id" : "87499609-7d5b-406e-276e-08d74633975a",
 "user" : "Antonio Paulo ",
@@ -727,15 +706,13 @@
 "likes" : "0",
 "hasReplies" : "TRUE",
 "numberOfReplies" : 1,
-"replys" [{
-"id" : "65fa2e28-76cb-44e2-3b07-08d7471dd7c5"
-"user" : "Paulo Valente "
-"date" : "2019-10-02"
-"timestamp" : "02.10.2019 11:08"
-"commentText" : "Que posso dizer? Tenho saudades das corridas de calhambeques, que tal como hoje encheram de turistas a cidade do Porto.\p"
-"likes" : "0"
-}
-]
+"replys": [{
+"id" : "65fa2e28-76cb-44e2-3b07-08d7471dd7c5",
+"user" : "Paulo Valente ",
+"date" : "2019-10-02",
+"timestamp" : "02.10.2019 11:08",
+"commentText" : "Que posso dizer? Tenho saudades das corridas de calhambeques, que tal como hoje encheram de turistas a cidade do Porto.\p",
+"likes" : "0"}]
 
 }
 ]
