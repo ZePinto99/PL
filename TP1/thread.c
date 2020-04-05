@@ -22,6 +22,7 @@ void writeCommentThread(CommentThread** c, FILE* json, int size) {
         fprintf(json, "{\n");
         fprintf(json, "\"id\" : \"%s\"\n", c[i]->id);
         fprintf(json, "\"user\" : \"%s\"\n", c[i]->user);
+        printf("%s\n", c[i]->user);
         fprintf(json, "\"date\" : \"%s\"\n", c[i]->date);
         fprintf(json, "\"timestamp\" : \"%s\"\n", c[i]->timestamp);
         fprintf(json, "\"commentText\" : \"%s\"\n", c[i]->commentText);

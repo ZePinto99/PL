@@ -1107,7 +1107,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case YY_STATE_EOF(ler):
 #line 82 "filtro.l"
-{fprintf(json,"\n}\n]"); exit(0);};
+{fprintf(json,"\n}\n]"); printf("%d\n",comentarios); exit(0);};
 	YY_BREAK
 case 8:
 /* rule 8 can match eol */
