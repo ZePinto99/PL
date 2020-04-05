@@ -1,0 +1,259 @@
+%
+\documentclass{report}
+%encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%--------------------------------------
+
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+%\usepackage{alltt}
+%\usepackage{fancyvrb}
+\usepackage{listings}
+%LISTING - GENERAL
+\lstset{
+    basicstyle=\small,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    frame=tB,
+    mathescape=true,
+    escapeinside={(*@}{@*)}
+}
+%
+%\lstset{ %
+%   language=C,                          % choose the language of the code
+%   basicstyle=\ttfamily\footnotesize,      % the size of the fonts that are used for the code
+%   keywordstyle=\bfseries,                 % set the keyword style
+%   %numbers=left,                          % where to put the line-numbers
+%   numberstyle=\scriptsize,                % the size of the fonts that are used for the line-numbers
+%   stepnumber=2,                           % the step between two line-numbers. If it's 1 each line
+%                                           % will be numbered
+%   numbersep=5pt,                          % how far the line-numbers are from the code
+%   backgroundcolor=\color{white},          % choose the background color. You must add \usepackage{color}
+%   showspaces=false,                       % show spaces adding particular underscores
+%   showstringspaces=false,                 % underline spaces within strings
+%   showtabs=false,                         % show tabs within strings adding particular underscores
+%   frame=none,                             % adds a frame around the code
+%   %abovecaptionskip=-.8em,
+%   %belowcaptionskip=.7em,
+%   tabsize=2,                              % sets default tabsize to 2 spaces
+%   captionpos=b,                           % sets the caption-position to bottom
+%   breaklines=true,                        % sets automatic line breaking
+%   breakatwhitespace=false,                % sets if automatic breaks should only happen at whitespace
+%   title=\lstname,                         % show the filename of files included with \lstinputlisting;
+%                                           % also try caption instead of title
+%   escapeinside={\%*}{*)},                 % if you want to add a comment within your code
+%   morekeywords={*,...}                    % if you want to add more keywords to the set
+%}
+
+\usepackage{xspace}
+
+\parindent=0pt
+\parskip=2pt
+
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\textwidth}{18cm}
+\setlength{\headsep}{-1cm}
+\setlength{\textheight}{23cm}
+
+\def\darius{\textsf{Darius}\xspace}
+\def\antlr{\texttt{AnTLR}\xspace}
+\def\pl{\emph{Processamento de Linguagens}\xspace}
+
+\def\titulo#1{\section{#1}}
+\def\super#1{{\em Supervisor: #1}\\ }
+\def\area#1{{\em \'{A}rea: #1}\\[0.2cm]}
+\def\resumo{\underline{Resumo}:\\ }
+
+
+%%%%\input{LPgeneralDefintions}
+
+\title{Processamento de Linguagens (3º ano do MiEI)\\ \textbf{Trabalho Prático 1}\\ Transformador Publico2NetLang}
+\author{Eduardo Costa\\ (A85735) \and José Pinto\\ (A84590) \and Luís Lopes\\ (A85367) \and Ricardo Carvalho\\ (A84261) }
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Neste relatório mostra-se o trabalho realizado para desenvolver um filtro de texto, recorrendo ao gerador Flex, que permita estudar o conteúdo dos comentários feitos numa notícia publicada no site do jornal O Público, cujos dados relevantes à análise pretendida devem ser extraídos do ficheiro HTML fornecido e transformados no formato JSON apresentado no enunciado.
+
+\end{abstract}
+
+\tableofcontents
+|
+\chapter{Introdução} \label{intro}
+
+\section{Introdução} \
+O trabalho de seguida apresentado tem como principais objetivos aumentar a experiência de uso do ambiente Linux e de algumas ferramentas de apoio à programação, aumentar capacidade de escrever Expressões Regulares (ER) para descrição de padrões de frases, desenvolver, a partir destas, sistemática e automaticamente, processadores de Linguagens Regulares que filtrem ou transformem textos com base no conceito de regras de produção Condição-Ação e utilizar o Flex para gerar filtros de texto em C. 
+\par De entre as sete propostas de trabalhos apresentadas no enunciado fornecido pelos docentes, optamos pelo 2.4, referente ao "Transformador Publico2NetLang", apresentado abaixo. A escolha deste tema não teve qualquer motivo relevante para além do facto de nos parecer, à primeira vista, o tema mais interessante e que imediatamente nos fez pensar como poderíamos abordá-lo.
+
+\section{Seleção de enunciados} \
+De entre os 7 temas propostos, o enunciado do escolhido é o seguinte:
+\bigbreak
+\textbf{Transformador Publico2NetLang (2.4)}
+\bigbreak
+Analise com todo o cuidado o ficheiro http://natura.di.uminho.pt/~jj/pl-20/TP1/Publico\_extraction\_portuguese\_
+comments\_4.html o qual contém os comentários ($85$ neste exemplo) a uma noticia publicada no jornal O Público, extraídos da página HTML da versão online do dito jornal.\\
+Para se fazer um estudo sócio-linguístico de forma e conteúdo dos comentários que a notícia suscitou, os dados relevantes
+à análise pretendida devem ser extraídos do ficheiro HTML fornecido e devem ser transformados no formato JSON a
+seguir mostrado.
+
+\begin{verbatim}
+"commentThread": [
+    {
+    "id": "STRING",
+    "user": "STRING",
+    "date": "STRING",
+    "timestamp": NUMBER,
+    "commentText": "STRING",
+    "likes": NUMBER,
+    "hasReplies": TRUE/FALSE,
+    "numberOfReplies": NUMBER
+    "replies": [ ]
+    },.......
+]
+\end{verbatim}
+
+Construa então um filtro de texto, recorrendo ao gerador FLex, que realize o processamento explicado, tendo em consideração que as respostas1 que surjam a um dado comentário devem ser aninhadas, na forma de uma lista, dentro do campo "replies" do dito comentário, seguindo evidentemente o mesmo formato apresentado.
+
+\section{Estrutura do Relatório} \
+
+Neste relatório iremos começar por explicar o problema, as características dos dados fornecidos no ficheiro HTML e os padrões de frase por nós encontrados, que levaram à resolução dos problemas inicialmente propostos.
+Numa segunda fase apresentamos a nossa proposta de solução, a nossa abordagem e a forma como a implementamos, com partes relevantes de código nos casos que considerarmos necessários. Por fim, apresentamos, também, alguns testes para verificar a solução encontrada e a funcionalidade do trabalho realizado.
+
+
+
+\chapter{Análise e Descrição do Problema} \label{ae}
+
+Como já foi referido, o problema consiste, essencialmente, na transformação de um ficheiro HTML num ficheiro JSON que permita uma análise dos comentários feitos numa notícia publicada no site do jornal O Público, como os ilustrados abaixo, na figura.
+\bigbreak
+\includegraphics[scale=0.35]{comentarios.png}
+\bigbreak
+O ficheiro que se encontra na imagem seguinte, apresenta o mesmo comentário e respetiva resposta de um outro utilizador, desta vez em HTML. A partir do momento em que começamos a analisar este ficheiro e a sua organização, chegamos a várias conclusões e começamos a pensar na forma como poderíamos encarará-la. Partimos, então, numa fase inicial, para a separação dos vários tipos considerados relevantes:
+\begin{itemize}
+    \item ID do comentário ("comment");
+    \item Autor do comentário ("comment\_\_author");
+    \item Data e hora do comentário ("dateline comment\_\_dateline");
+    \item Conteúdo do comentário ("comment\_\_content");
+    \item Respostas ao comentário, que são, por sua vez, também elas comentários ("comments\_\_list");
+\end{itemize}
+
+\bigbreak
+\includegraphics[scale=0.7]{html.png}
+\bigbreak
+Pelo que vimos no ficheiro HTML, exemplificado na imagem anterior, percebemos que teríamos de filtrar cada um destes elementos individualmente de forma a podermos colocar apenas a informação relevante no ficheiro JSON, eliminando, assim, a parte do código HTML e obtendo os dados fundamentais acerca do comentário. Pudemos ver, também, que, tanto no site fornecido, como no respetivo ficheiro HTML, não existe qualquer referência a "likes", como apresenta o enunciado, pelo que esse atributo foi por nós ignorado na posterior realização do trabalho, que mais à frente neste relatório se apresenta.
+\\
+
+\chapter{Desenho da Solução e sua Implementação}
+
+Como já mencionado anteriormente, o ficheiro HTML distingue cada um dos tipos de informação apontados no ponto anterior pelo que a nossa abordagem à resolução do problema passou pela elaboração de filtros Flex e funções essenciais em C para extração dos dados necessários para colocar no ficheiro JSON. Daqui surgiram 3 ficheiros principais: \textit{thread.c}, \textit{thread.h} e \textit{filtro.l}. Sendo o primeiro o filtro propriamente dito e o \textit{thread.c} contém funções importantes para a filtragem e armazenamento de informação.
+\\
+O filtro por nós construído tem os estados "ler", "comment", "reply" e "conteúdo". 
+\bigbreak
+\includegraphics[scale=1]{estados.png}
+\bigbreak
+O autómato finito determinístico que representa a nossa abordagem deste problema representa-se da seguinte forma:
+\bigbreak
+\includegraphics[scale=0.8]{automato.png}
+
+\newpage
+
+\textbf{\underline{Estado ler}}
+\\
+O estado "ler" implementado, como mostra a imagem abaixo, distingue um novo comentário de uma secção de respostas e retira o \textit{id} do comentário através da função "retiraId" definida em \textit{thread.c}. Este estado é também responsável por iniciar o estado "comment" ou o estado "reply", dependendo da situação.
+\bigbreak
+\includegraphics[scale=0.8]{ler.png}
+\bigbreak
+
+\textbf{\underline{Estado comment}}
+\\
+O estado "comment" retira o nome do utilizador, data e \textit{timestamp}, utilizando funções definidas no \textit{thread.c} que através do "strtok" filtram apenas a informação essencial. Para além disso, é também responsável por iniciar o estado "conteúdo".
+\bigbreak
+\includegraphics[scale=0.9]{comment.png}
+\bigbreak
+
+\newpage
+\textbf{\underline{Estado conteúdo}}
+\\
+Para o estado "conteúdo", inicialmente tentamos ler o conteúdo dos comentários do início ao fim, mas constatamos que tal não era possível, pelo que tivemos que alterar a nossa abordagem neste ponto, passando, então, a ler parágrafo a parágrafo, concatenando-os até chegar ao final do comentário que é identificado por </p>. Mesmo depois de uma filtragem bem sucedida, chegamos à conclusão que o ficheiro JSON gerado não era válido, por isso definimos uma função "retiraCommentText", em \textit{thread.c}, responsável por retirar informação desnecessária ao comentário filtrado. Esta, sempre que encontra uma mudança de parágrafo, escreve /p e sempre que encontra aspas escreve \textbackslash ”. No final do "conteúdo" o filtro volta ao estado "ler".
+\bigbreak
+\includegraphics[scale=0.7]{conteudo.png}
+\bigbreak
+Função que concatena parágrafos, como referido acima:
+\bigbreak
+\includegraphics[scale=0.7]{concat.png}
+\bigbreak
+Função "retiraCommentText", que retira informação desnecessária do conteúdo, também esta referida anteriormente:
+\bigbreak
+\includegraphics[scale=0.6]{retira.png}
+
+
+\textbf{\underline{Estado reply}}
+\\
+Quanto ao estado "reply", são processadas as secções de respostas do ficheiro. Este é iniciado pelo estado "ler" e, neste estado, os comentários vão sendo armazenados em memória numa estrutura "CommentThread** replys", por nós definida.
+\bigbreak
+\includegraphics[scale=0.8]{reply.png}
+\bigbreak
+Como podemos ver, este estado inicia o estado "conteúdo" e só aí é que a resposta é armazenada em memória. De seguida, é iniciado o estado "ler" onde existe uma condição "if" no filtro <ler>\textbackslash<li.+ para continuar a escrever \textit{replys}, caso seja necessário. Desta forma, para depois escrever as respostas armazenadas e todas as informações necessárias no ficheiro JSON, utilizamos a seguinte função:
+\bigbreak
+\includegraphics[scale=0.8]{write.png}
+\bigbreak
+A estrutura "CommentThread" referida encontra-se definida em \textit{thread.h} e apresenta-se da seguinte forma:
+\bigbreak
+\includegraphics[scale=0.8]{struct.png}
+\bigbreak
+
+\newpage
+\textbf{\underline{Definições auxiliares}}
+\\
+Utilizamos, também, algumas definições para os filtros, de forma a simplificar e organizar a nossa implementação e raciocínio, como mostra a imagem seguinte:
+\bigbreak
+\includegraphics[scale=0.8]{def.png}
+\bigbreak
+
+\textbf{\underline{Main}}
+\\
+Por fim, a definição da nossa "main" passou por abrir o ficheiro HTML fornecido e o nosso ficheiro JSON, e, de seguida, chamar o filtro mostrado acima para que, juntamente com as funções implementadas, preencham o ficheiro JSON de forma adequada, como pedido no enunciado.
+\bigbreak
+\includegraphics[scale=0.8]{main.png}
+\bigbreak
+
+
+\chapter{Resultados Finais}
+Os resultados do projeto, que se encontram representados nas imagens abaixo, mostram a forma como o ficheiro JSON é construído. Podemos ver, então, que todos os campos são corretamente completos, apenas com a informação necessária e formando um ficheio JSON válido. É importante reforçar, tal como dito inicialmente, que o número de likes foi por nós ignorado durante a implementação, pois não existe qualquer referência a este atributo no site da notícia nem no ficheiro HTML associado. Assim, ao longo do ficheiro JSON, este número foi mantido a 0.
+\bigbreak
+\includegraphics[scale=0.55]{images/resultados1.png}
+\bigbreak
+Nesta segunda imagem mostra-se, pela sua importância e dificuldade de implementação, que as respostas aos comentários estão a ser devidamente introduzias, assim como as suas informações. É de notar que o número de respostas ao comentário principal está a ser devidamente incrementado e que não há referência a número de respostas nas respostas, pois, neste caso, não é possível essa situação ocorrer.
+\bigbreak
+\includegraphics[scale=0.6]{images/resultados2.png}
+\bigbreak
+
+
+\chapter{Conclusão} \label{concl}
+
+Finalmente, como conclusão, consideramos ter concluído com sucesso o proposto no enunciado escolhido, cumprindo todos os requisitos e funcionalidades nele presentes. Consideramos, também, que este projeto nos ajudou a consolidar, de uma forma mais prática, os conceitos abordados nas aulas.
+Gostaríamos também de destacar que, devido à situação em que nos encontramos e por não sabermos como se procederá a defesa deste trabalho, tentamos elaborar um relatório o mais explícito possível, com imagens, e respetivas descrições, referentes a todas ou quase todas as fases do processo, funções e filtros implementados.
+
+
+\end{document}
