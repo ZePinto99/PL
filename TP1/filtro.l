@@ -107,7 +107,6 @@ BEGIN 0;
                   BEGIN ler;
                   }
                   else{
-                  comentarios++;
                   BEGIN ler;
                   fprintf(json,"\"commentText\" : \"%s\",\n", texto);
                   fprintf(json,"\"likes\" : \"%d\",\n",likes);
