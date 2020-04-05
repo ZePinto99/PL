@@ -4,12 +4,12 @@
 #include <string.h>
 #include <ctype.h>
 
-CommentThread* newCommentThread(char* i, char* user, char* date, char* timestamp, char* commentText, int likes) {
+CommentThread* newCommentThread(char i[], char user[], char date[], char timestamp[], char* commentText, int likes) {
     CommentThread* c = (CommentThread*)malloc(sizeof(CommentThread));
-    c->id = i;
-    c->user = user;
-    c->date = date;
-    c->timestamp = timestamp;
+    sprintf(c->id,"%s",i);
+    sprintf(c->user,"%s",user);
+    sprintf(c->date,"%s",date);
+    sprintf(c->timestamp,"%s",timestamp);
     c->commentText = commentText;
     c->likes = likes;
     return c;

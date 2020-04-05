@@ -1072,7 +1072,7 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 62 "filtro.l"
-{if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext)); BEGIN reply;numberOfReplies++;}
+{if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext));BEGIN reply;numberOfReplies++;}
              else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 	YY_BREAK
 case 4:
@@ -1169,7 +1169,6 @@ YY_RULE_SETUP
                   BEGIN ler;
                   }
                   else{
-                  comentarios++;
                   BEGIN ler;
                   fprintf(json,"\"commentText\" : \"%s\",\n", texto);
                   fprintf(json,"\"likes\" : \"%d\",\n",likes);
@@ -1178,60 +1177,60 @@ YY_RULE_SETUP
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 116 "filtro.l"
+#line 115 "filtro.l"
 ;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 119 "filtro.l"
+#line 118 "filtro.l"
 {sprintf(idR, "%s", retiraID(yytext));};
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 121 "filtro.l"
+#line 120 "filtro.l"
 {sprintf(userR, "%s", "Conta desactivada");};
 	YY_BREAK
 case 20:
 /* rule 20 can match eol */
 YY_RULE_SETUP
-#line 123 "filtro.l"
+#line 122 "filtro.l"
 {sprintf(userR, "%s", retiraUser(yytext));};
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 125 "filtro.l"
+#line 124 "filtro.l"
 {sprintf(dateR, "%s", retiraData(yytext));};
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 127 "filtro.l"
+#line 126 "filtro.l"
 {sprintf(timestampR, "%s", retirarTimeStamp(yytext));};
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 129 "filtro.l"
+#line 128 "filtro.l"
 {texto = ""; BEGIN conteudo;};
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 132 "filtro.l"
+#line 131 "filtro.l"
 ;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 133 "filtro.l"
+#line 132 "filtro.l"
 ;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 135 "filtro.l"
+#line 134 "filtro.l"
 ECHO;
 	YY_BREAK
-#line 1235 "lex.yy.c"
+#line 1234 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 case YY_STATE_EOF(reply):
@@ -2247,7 +2246,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 135 "filtro.l"
+#line 134 "filtro.l"
 
 
 int main(int argc, char **argv){

@@ -59,7 +59,7 @@ BEGIN 0;
 
 {commentList}\<li.+   {BEGIN comment; fprintf(json, "\"id\" : \"%s\"\n", retiraID(yytext));};
 
-<ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext)); BEGIN reply;numberOfReplies++;}
+<ler>\<li.+ {if(hasReplies==1){sprintf(idR, "%s", retiraID(yytext));BEGIN reply;numberOfReplies++;}
              else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
 <ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));
@@ -107,7 +107,6 @@ BEGIN 0;
                   BEGIN ler;
                   }
                   else{
-                  comentarios++;
                   BEGIN ler;
                   fprintf(json,"\"commentText\" : \"%s\",\n", texto);
                   fprintf(json,"\"likes\" : \"%d\",\n",likes);
