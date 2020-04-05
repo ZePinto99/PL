@@ -32,10 +32,10 @@ int likes=0;
 int numberOfReplies =0;
 FILE *json;
 
-char idR[40];
-char userR[50];
+char idR[1024];
+char userR[1024];
 int likesR =0;
-char dateR[10];
+char dateR[50];
 char timestampR[30];
 CommentThread** replys = NULL;
 
@@ -63,14 +63,15 @@ BEGIN 0;
              else{BEGIN comment; fprintf(json, "\"id\" : \"%s\",\n", retiraID(yytext));};};
 
 <ler>{commentList} {hasReplies=1;numberOfReplies=1; replys = malloc(sizeof(CommentThread**));
-                    BEGIN reply; fprintf(json,"\"hasReplies\" : TRUE,\n");}
+                    BEGIN reply; fprintf(json,"\"hasReplies\" : \"TRUE\",\n");}
 
 <ler>{commentExpanded} { if(hasReplies!=1){
-                            fprintf(json,"\"hasReplies\" : FALSE,\n");}
+                            fprintf(json,"\"hasReplies\" : \"FALSE\",\n");}
                          fprintf(json,"\"numberOfReplies\" : %d,\n",numberOfReplies);
                          writeCommentThread(replys, json, numberOfReplies);
                          if(comentarios<84){
-                            fprintf(json,"],\n\n");}
+                            fprintf(json,"],\n\n");
+                            }
                          else{fprintf(json,"]\n"); }
                          hasReplies = 0; numberOfReplies =0;};
 
@@ -81,6 +82,7 @@ BEGIN 0;
 <ler><<EOF>>   {fprintf(json,"\n}\n]"); exit(0);};
 
 
+<comment>\<(h5).+\>[ \n\r]*(Conta) {fprintf(json, "\"user\" : \"Conta desactivada\",\n");};
 
 <comment>{commentAuthor} { fprintf(json, "\"user\" : \"%s\",\n", retiraUser(yytext));};
 
@@ -115,6 +117,8 @@ BEGIN 0;
 
 
 <reply>\<li.+ {sprintf(idR, "%s", retiraID(yytext));};
+
+<reply>\<(h5).+\>[ \n\r]*(Conta) {sprintf(userR, "%s", "Conta desactivada");};
 
 <reply>{commentAuthor}  {sprintf(userR, "%s", retiraUser(yytext));};
 

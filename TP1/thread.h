@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-typedef struct CommentThread{
-    char* id;
+typedef struct CommentThread {
+	char* id;
 	char* user;
 	char* date;
 	char* timestamp;
