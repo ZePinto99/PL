@@ -22,7 +22,6 @@ void writeCommentThread(CommentThread** c, FILE* json, int size) {
         fprintf(json, "{\n");
         fprintf(json, "\"id\" : \"%s\"\n", c[i]->id);
         fprintf(json, "\"user\" : \"%s\"\n", c[i]->user);
-        printf("%s\n", c[i]->user);
         fprintf(json, "\"date\" : \"%s\"\n", c[i]->date);
         fprintf(json, "\"timestamp\" : \"%s\"\n", c[i]->timestamp);
         fprintf(json, "\"commentText\" : \"%s\"\n", c[i]->commentText);
@@ -97,30 +96,38 @@ char* retirarTimeStamp(char* str) {
 
 //char* retiraCommentText
 char* retiraCommentText(char* str) {
-    char* token; char* token2; char* tok;
+    char* token;char* token2;char* tok;
     token = strtok(str, ">");
     token = strtok(NULL, " ");
     token = strtok(NULL, "<");
     while (token[0] == ' ') token++;
-    int i = 0;
-    token2 = (char*)malloc(sizeof(char*) * (strlen(token)));
-    while (token[i + 1] != '\0') {
-        token2[i] = token[i];
-        i++;
-    }
-    int k = 0;
-    tok = (char*)malloc(sizeof(char*) * i);
-    while (token2[k] != '\0') {
-        for (int f = k; f < 8 + k; f++) {
-            if (token2[f] != '\0' && (token2[f] != ' ' && token2[f] != '\n')) {
-                break;
-            }
-            if (f == k + 7) return tok;
+    int i=0;int i2=0;
+    token2 = (char*) malloc(sizeof(char*)*(strlen(token)));
+    while(token[i+1]!='\0'){
+        if(token[i]=='\"'){
+            token2[i2]='\\';
+            i2++;
+            token2[i2]=token[i];
         }
-        tok[k] = token2[k];
-        k++;
-    }
-    //printf(token2);
+        if(token[i]=='\n'){
+            token2[i2]='\\';
+            i2++;
+            token2[i2]='p';
+            i2++;
+            token[i]=' ';
+        }
+        token2[i2]=token[i];
+        i++;i2++;}
+    int k =0;
+    tok = (char*) malloc(sizeof(char*)*i);
+    while(token2[k]!='\0'){
+        for(int f=k; f<200+k;f++){
+            if(token2[f]!='\0'&& token2[f]!=' ' && token2[f]!='\n'){
+                break;}
+            if(token2[f]=='\0')
+                return tok;}
+        tok[k]=token2[k];
+        k++;}
+//printf(token2);
     return(tok);
 }
-
