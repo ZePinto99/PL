@@ -7,14 +7,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08b5bf67-935c-4830-975f-a205b5d78feb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filtro" beforeDir="false" afterPath="$PROJECT_DIR$/filtro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filtro.l" beforeDir="false" afterPath="$PROJECT_DIR$/filtro.l" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lex.yy.c" beforeDir="false" afterPath="$PROJECT_DIR$/lex.yy.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thread.c" beforeDir="false" afterPath="$PROJECT_DIR$/thread.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/thread.h" afterDir="false" />
-    </list>
+    <list default="true" id="08b5bf67-935c-4830-975f-a205b5d78feb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +17,7 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1ZzwYejbO8ifkain4hPgvOkUooF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,6 +29,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -48,6 +55,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585855278788</updated>
       <workItem from="1585855282672" duration="8488000" />
+      <workItem from="1585903041457" duration="1354000" />
     </task>
     <servers />
   </component>
